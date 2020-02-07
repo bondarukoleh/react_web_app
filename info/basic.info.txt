@@ -1,0 +1,12 @@
+Every app starts from idea, and from planing what app should do and how it should be used.
+We need to white a few diagrams, and pictures what the main flows.
+
+For app that collects feedback for apps - the main flow should be something like this.
+User signs up via Google OAuth (sign with 'google' account) ->
+User pays for email credits via stripe ->
+User creates a new "campaign" ->
+User enters a list of emails to send question survey to ->
+App sends emails to list ->
+Surveyees clicks on links in email to provide feedback ->
+App tabulate feedback ->
+User can see report of all survey responses.
