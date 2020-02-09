@@ -2,11 +2,14 @@ Every app starts from idea, and from planing what app should do and how it shoul
 We need to white a few diagrams, and pictures what the main flows.
 
 For app that collects feedback for apps - the main flow should be something like this.
-User signs up via Google OAuth (sign with 'google' account) ->
-User pays for email credits via stripe ->
-User creates a new "campaign" ->
-User enters a list of emails to send question survey to ->
-App sends emails to list ->
-Surveyees clicks on links in email to provide feedback ->
-App tabulate feedback ->
-User can see report of all survey responses.
+User signs up via Google OAuth (sign with 'google' account) -> (Express, MongoDB, PassportJS)
+User pays for email credits via stripe -> (Stripe + MongoDB)
+User creates a new "campaign" -> (React + Redux)
+User enters a list of emails to send question survey to -> (React + Redux + Redux Form)
+App sends emails to list -> (Email Provider)
+Surveyees clicks on links in email to provide feedback -> (Express, MongoDB, Email Provider)
+App tabulate feedback -> (MongoDB ?)
+User can see report of all survey responses. (React + Redux + MongoDB)
+
+Architecture:
+React App <-> Express API Server <-> MongoDB. Client doesn't talk to DB directly.
