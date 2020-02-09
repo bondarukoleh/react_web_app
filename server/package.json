@@ -1,9 +1,10 @@
 {
-  "name": "react_web_app",
+  "name": "emaily_server",
   "version": "1.0.0",
-  "description": "Learning react. App related to collecting feedback about apps.",
+  "description": "Server related to collecting feedback about apps.",
   "main": "index.js",
   "scripts": {
+    "start": "node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/bondarukoleh/react_web_app/issues"
   },
-  "homepage": "https://github.com/bondarukoleh/react_web_app#readme"
+  "homepage": "https://github.com/bondarukoleh/react_web_app#readme",
+  "dependencies": {
+    "express": "4.17.1"
+  }
 }
