@@ -20,5 +20,8 @@
   "homepage": "https://github.com/bondarukoleh/react_web_app#readme",
   "dependencies": {
     "express": "4.17.1"
+  },
+  "engines": {
+    "node": "12.13.1"
   }
 }
