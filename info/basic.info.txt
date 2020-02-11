@@ -13,3 +13,14 @@ User can see report of all survey responses. (React + Redux + MongoDB)
 
 Architecture:
 React App <-> Express API Server <-> MongoDB. Client doesn't talk to DB directly.
+
+OAuth login.
+We show user - "Login with google". User clicks -> redirecting him to google (with our app ID) where google asks user
+"Do you grant permission for this app (ID) to get info about yourself?" -> User clicks yes, Google gives our app "user
+code" means User has granted permission, app asks google to exchange "user code" on information about the User, google
+returns to the app User profile. App create a User record in DB, and gives User cookies (e.g. JWT). Further User
+requests to App User makes with cookies.
+All things that related to google auth - is passportJS http://www.passportjs.org/ library responsibilities.
+https://console.developers.google.com/ - here we can add a appID.
+Your need to setup your application: enable Google+ API to get OAuth2.0. Create a ClientID - which brings you to setup
+consent screen - screen that google shows User so he can grant app the permission to get his data.
