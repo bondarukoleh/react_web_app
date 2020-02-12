@@ -12,9 +12,7 @@ node_modules/
 
 # sensitive stuff
 .data
-
-# start server
-start.sh
+/server/config/dev.js
 
 # start test
 test.sh

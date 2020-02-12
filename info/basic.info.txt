@@ -24,3 +24,8 @@ All things that related to google auth - is passportJS http://www.passportjs.org
 https://console.developers.google.com/ - here we can add a appID.
 Your need to setup your application: enable Google+ API to get OAuth2.0. Create a ClientID - which brings you to setup
 consent screen - screen that google shows User so he can grant app the permission to get his data.
+ClientID - Public token (key) of our app in google developers console. ClientSecret - is a private token (key), don't
+share it.
+
+In passport JS we can ask for scope of information user should give access to e.g. we can ask for photos from google
+drive, contact list, calendar, a lot of stuff.
