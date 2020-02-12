@@ -10,5 +10,11 @@ npm-debug.log*
 # Dependency directories
 node_modules/
 
-#sencitive stuff
+# sensitive stuff
 .data
+
+# start server
+start.sh
+
+# start test
+test.sh

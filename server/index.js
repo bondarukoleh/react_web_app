@@ -3,6 +3,11 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const {GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET} = process.env;
 
+// TODO: rewrite with proper checker
+if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET) {
+  throw new Error(`CLIENT ID AND SECRET SHOULD BE SET!`);
+}
+
 const app = express();
 
 // draft
