@@ -28,15 +28,7 @@ app.get('/auth/google', passport.authenticate('google', {
   scope: ['profile', 'email']
 }));
 
-app.get('/auth/google/callback', (req, res) => {
-  console.log(`Got a callback from google with parameters ${req.params}`);
-  res.send(`Got ${req.params} from google.`);
-  /*passport.authenticate('google', { failureRedirect: '/login' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/');
-  }*/
-});
+app.get('/auth/google/callback', passport.authenticate('google'));
 
 function getServer(port = process.env.PORT || 3000) {
   return app.listen(port, () => console.log(`App is listening on port ${port}.`));
