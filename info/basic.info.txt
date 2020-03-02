@@ -26,6 +26,11 @@ Your need to setup your application: enable Google+ API to get OAuth2.0. Create 
 consent screen - screen that google shows User so he can grant app the permission to get his data.
 ClientID - Public token (key) of our app in google developers console. ClientSecret - is a private token (key), don't
 share it.
+Also to avoid redirect "redirect_uri_mismatch" error - you need to provide a valid links you setup to redirect to.
+Those links Google with match with it's "hackers base", if everything is ok - than google will send user access' code
+to your app, with this access code you can ask google to get info about the user or some more stuff. So access
+code is like a permission to access user info from your app, but it expires with time, that's why google sends you the
+Refresh token, with this token you can get new access token.
 
 In passport JS we can ask for scope of information user should give access to e.g. we can ask for photos from google
 drive, contact list, calendar, a lot of stuff.

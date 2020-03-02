@@ -11,12 +11,12 @@ passport.use(new GoogleStrategy({
     clientSecret: GOOGLE_CLIENT_SECRET,
     callbackURL: '/auth/google/callback'
   },
-  function(accessToken, refreshToken, profile, cb) {
+  function(accessToken, refreshToken, profile, done) {
     console.log(`We've got a accessToken for user ${accessToken}`);
     console.log(`We've got a refreshToken for user ${refreshToken}`);
-    console.log(`We've got a profile for user ${profile}`);
-    console.log(`We've got a cb for user ${cb}`);
-    return cb();
+    console.log(`We've got a profile for user`);
+    console.log(profile);
+    done();
   }
 ));
 
