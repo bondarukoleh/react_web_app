@@ -5,6 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
+    "start_dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,5 +26,15 @@
   },
   "engines": {
     "node": "12.13.1"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.2"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      ".git",
+      "node_modules"
+    ],
+    "exec": "node ./server/index.js"
   }
 }

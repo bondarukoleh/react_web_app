@@ -34,3 +34,21 @@ Refresh token, with this token you can get new access token.
 
 In passport JS we can ask for scope of information user should give access to e.g. we can ask for photos from google
 drive, contact list, calendar, a lot of stuff.
+
+===============================================
+Some theory about login.
+HTTP is stateless, about next request. So to login, server got to give you something (like JWT, cookie), that would give
+you ability to say that you've been here lately, and you have rights to get this info you're asking.
+If we talking about cookie-based authentication, server should add header "Set-Cookie": "aldskfluh" with some token to
+response, browser will see this specific header, and store it in his memory, and automatically will append this header to
+each further request (if you writing test with REST lib, you need to add it by yourself of course).
+
+Simple login flow is different from OAuth flow.
+Simple login: User sign up with login/pass, server stores them, User login with login/pass - server search the match and
+know who's logged in.
+OAuth flow - User sign up with Google, server stores his profile data gotten from Google, User login - server once again
+goes to google to get profile data and search for match among created Users, then it understands who's logged in.
+This a third-party (Google in this case) relation, but we make an assumption that data of the profile (e.g. UserID)
+won't change with time, and User can always login to our app and sees his data.
+
+When User logs out - server invalidate, unset, or expire "Set-Cookie" header, which makes user session invalid.
