@@ -1,5 +1,4 @@
-const {addAuthRoutes} = require('./auth');
-
 module.exports = {
-  addAuthRoutes,
+  auth: require('./auth'),
+  basic: require('./basic'),
 };

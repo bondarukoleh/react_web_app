@@ -7,7 +7,7 @@ User pays for email credits via stripe -> (Stripe + MongoDB)
 User creates a new "campaign" -> (React + Redux)
 User enters a list of emails to send question survey to -> (React + Redux + Redux Form)
 App sends emails to list -> (Email Provider)
-Surveyees clicks on links in email to provide feedback -> (Express, MongoDB, Email Provider)
+Surveys clicks on links in email to provide feedback -> (Express, MongoDB, Email Provider)
 App tabulate feedback -> (MongoDB ?)
 User can see report of all survey responses. (React + Redux + MongoDB)
 
@@ -35,6 +35,12 @@ Refresh token, with this token you can get new access token.
 In passport JS we can ask for scope of information user should give access to e.g. we can ask for photos from google
 drive, contact list, calendar, a lot of stuff.
 
+When you get the User profile, you can generate a token based on this profile and ask passport.js to stick this token
+to the user cookie. This can be done with implementation of serialize function in passport.js, which gets a User model
+as an argument and serialize it to token.
+When User will return to our app with his token - another function that we need to implement is deserialize, that gets
+token as an argument and returns the User model.
+
 ===============================================
 Some theory about login.
 HTTP is stateless, about next request. So to login, server got to give you something (like JWT, cookie), that would give
@@ -52,3 +58,10 @@ This a third-party (Google in this case) relation, but we make an assumption tha
 won't change with time, and User can always login to our app and sees his data.
 
 When User logs out - server invalidate, unset, or expire "Set-Cookie" header, which makes user session invalid.
+
+================================================
+Mongo & mongoose
+Mongo - it's about collections, and rows in these collections. It's pretty basic.
+Mongoose - it's a js library above the Mongo, there are schemes, Models.
+Model class - works with single collection, with addition features like inserting a record, find records, filter, so on.
+Model class also gives us access to instance(s) of rows. It returns record, or records - depends what have you asked.
