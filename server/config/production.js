@@ -1,6 +1,19 @@
-const {GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET} = process.env;
+const {
+  GOOGLE_CLIENT_ID,
+  GOOGLE_CLIENT_SECRET,
+  DB_USER,
+  DB_PASS,
+  DB_NAME,
+  DB_HOST,
+  COOKIE_KEY
+} = process.env;
 
 module.exports = {
   GOOGLE_CLIENT_ID,
-  GOOGLE_CLIENT_SECRET
+  GOOGLE_CLIENT_SECRET,
+  DB_USER,
+  DB_PASS,
+  DB_NAME,
+  DB_HOST,
+  COOKIE_KEY
 };

@@ -11,11 +11,11 @@ function useGoogleAuth(passportLib) {
     // TODO: not very secure to pass id from DB, re-write further
     console.log('GOT IN SERILLLL');
     console.log(userModel);
-    done(null, userModel.id)
+    done(null, userModel.id) // after that user id is added as to req.session and encrypted by cookieSession with key
   });
 
   passportLib.deserializeUser((usersID, done) => {
-    UserModel.findById(usersID).then(user => done(null, user), err => done(err))
+    UserModel.findById(usersID).then(user => done(null, user), err => done(err)) // after that userModel added to req.user
   });
 
   passportLib.use(new GoogleStrategy({

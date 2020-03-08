@@ -9,13 +9,12 @@ const app = express();
 
 client.connect().then(() => console.log('DB connected'), (e) => console.log(`DB is not connected!!!\n"${e.message}"`));
 
-// TODO: not working correctly, need time to find out why
 // services
-// 30 days * 24 hours in day * 60 minutes in hour * 60 seconds in minute * 1000 miliseconds in second = 2592000000
+// 30 days * 24 hours in day * 60 minutes in hour * 60 seconds in minute * 1000 milliseconds in second = 2592000000
 app.use(cookieSession({maxAge: 2592000000, keys: [COOKIE_KEY]}));
 useGoogleAuth(passport);
 app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.session());
 pluginRoutes(app);
 // routes
 

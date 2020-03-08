@@ -9,6 +9,17 @@ function plugAuth(app) {
   }));
 
   app.get('/auth/google/callback', passport.authenticate('google'));
+
+  app.get('/api/current_user', (req, res) => {
+    res.send(`Session - ${req.session.passport.user}, User: ${req.user}`);
+    // req.user - userModel added by passport
+    // req.session - user id that added by passport when we serialize a user when he logs in
+  });
+
+  app.get('/api/logout', (req, res) => {
+    req.logout(); // function added as a user property by passport, allows to clear cookies from the client-browser
+    res.send(`You are logged out. ${req.user}`)
+  })
 }
 // router.get('/', passport.authenticate('google', {
 //   scope: ['profile', 'email']

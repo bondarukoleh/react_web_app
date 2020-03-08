@@ -41,6 +41,21 @@ as an argument and serialize it to token.
 When User will return to our app with his token - another function that we need to implement is deserialize, that gets
 token as an argument and returns the User model.
 
+cookieSession and passport
+cookieSession when request comes in, extracts all cookie data from request and adds it to req.session property, so
+passport don't have to worry about cookie, it has to grab data from req.session property and deserialize it to req.user.
+So req.session - it's a cookieSession's work, req.user - passport's work.
+When we send the request cookieSession grabs data from req.session (?) and assign it to response cookie.
+
+Express says that we can also use express-session package instead of cookie-session. Difference is between storing
+cookie data inside the app. Cookie-session stores the encrypted user id, and all stuff that we add to cookie, so only
+thing we need to do is decrypt it (which) done by cookie-session and cookie data in our needs.
+Express-session stores in cookie only session id, it has it's session id storage where it can find a match of session id
+and user data that this session id is belong to.
+So cookie-session stores add data inside cookie, express-session - stores user data outside cookie. The nice thing in
+express-session is that we can store a lot of data for particular session, because we don't need to pass all the stuff
+via network to client, but the bad thing is we make our session not stateless on the server side. + we need to setup
+external session storage, which makes our server on one dependency more.
 ===============================================
 Some theory about login.
 HTTP is stateless, about next request. So to login, server got to give you something (like JWT, cookie), that would give
