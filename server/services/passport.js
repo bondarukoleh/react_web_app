@@ -21,7 +21,8 @@ function useGoogleAuth(passportLib) {
   passportLib.use(new GoogleStrategy({
       clientID: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
-      callbackURL: '/auth/google/callback'
+      callbackURL: '/auth/google/callback' // we can provide a full url here "https://herokuapp" or "http://localhost",
+      // proxy: true // or set that we trust any proxy between our server and client
     },
     function (accessToken, refreshToken, profile, done) {
       UserModel.findOne({googleID: profile.id}).then((user) => {

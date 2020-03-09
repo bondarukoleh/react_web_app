@@ -31,6 +31,7 @@ Those links Google with match with it's "hackers base", if everything is ok - th
 to your app, with this access code you can ask google to get info about the user or some more stuff. So access
 code is like a permission to access user info from your app, but it expires with time, that's why google sends you the
 Refresh token, with this token you can get new access token.
+Google complaining about the redirect mismatch - that's the heroku proxy fault.
 
 In passport JS we can ask for scope of information user should give access to e.g. we can ask for photos from google
 drive, contact list, calendar, a lot of stuff.
@@ -80,3 +81,8 @@ Mongo - it's about collections, and rows in these collections. It's pretty basic
 Mongoose - it's a js library above the Mongo, there are schemes, Models.
 Model class - works with single collection, with addition features like inserting a record, find records, filter, so on.
 Model class also gives us access to instance(s) of rows. It returns record, or records - depends what have you asked.
+
+===============================================
+React app
+React has his own server, that is responsible for the UI, for JS.
+Express server - responsible for the backend and for generating and providing JSON data.
