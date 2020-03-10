@@ -9,7 +9,8 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server_dev\" \"npm run client\"",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "cd client && npm i --no-audit && cd .."
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "concurrently": "5.1.0",
     "cookie-session": "1.4.0",
     "express": "4.17.1",
+    "http-proxy-middleware": "1.0.1",
     "mongoose": "5.9.3",
     "passport": "0.4.1",
     "passport-google-oauth20": "2.0.0"
