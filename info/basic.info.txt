@@ -86,3 +86,11 @@ Model class also gives us access to instance(s) of rows. It returns record, or r
 React app
 React has his own server, that is responsible for the UI, for JS.
 Express server - responsible for the backend and for generating and providing JSON data.
+
+In dev mode - there will be two separate servers react dev server and express. That's why we need react-proxy set up, to
+not hardcoded all the links when we want user to be redirected to express, but keep the relative style. React server
+gives us live-reload and linting mostly, so there not much magic in it.
+In prod mode, we build react prod build "npm run build", and there will be only one server that will return production
+html and bundle from "public" directory, where create-react-app stored it after we asl him to make us a prod build.
+So when we keep relative links in our code - we don't need super-prod-checks in our code, everything will work in prod
+and in dev.

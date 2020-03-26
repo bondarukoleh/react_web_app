@@ -9,8 +9,6 @@ const UserModel = mongoose.model('users');
 function useGoogleAuth(passportLib) {
   passportLib.serializeUser((userModel, done) => {
     // TODO: not very secure to pass id from DB, re-write further
-    console.log('GOT IN SERILLLL');
-    console.log(userModel);
     done(null, userModel.id) // after that user id is added as to req.session and encrypted by cookieSession with key
   });
 
