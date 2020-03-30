@@ -94,3 +94,17 @@ In prod mode, we build react prod build "npm run build", and there will be only 
 html and bundle from "public" directory, where create-react-app stored it after we asl him to make us a prod build.
 So when we keep relative links in our code - we don't need super-prod-checks in our code, everything will work in prod
 and in dev.
+
+Thing with proxying request in dev mode from one server to another have a few strengths:
+1. Cookies included automatically only to request from client to domain source html comes from, so when we requesting
+something from the client side with same domain - cookies will be included, and then on backend we'll redirect req to
+another server, if we'll request something directly from API and UI comes from another domain (in dev), cookie will be
+lost.
+2. CORS, cross origin resource sharing request would be captured, and browser needs you to provide special permission
+for that stuff if we'll request different domain or different port from first source, and we don't want thins headache.
+
+React proxy is greedy, it takes all request that starts with '/auth/google', means it will take '/auth/google/whatever'
+
+We'll try to keep all data/redux layer/logic in src/index.js, and all render/react layer/logic in App.js
+
+React-redux provides a layer of connection between redux state and react components.

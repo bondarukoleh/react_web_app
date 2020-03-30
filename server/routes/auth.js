@@ -8,7 +8,9 @@ function plugAuth(app) {
     scope: ['profile', 'email']
   }));
 
-  app.get('/auth/google/callback', passport.authenticate('google'));
+  app.get('/auth/google/callback', (req, res) => {
+    return res.send(`Hi ${req.user.name}, nice to see you!`)
+  });
 
   app.get('/api/current_user', (req, res) => {
     res.send(`Session - ${req.session.passport.user}, User: ${req.user}`);
