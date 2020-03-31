@@ -3,5 +3,8 @@ const initialState = {
 };
 
 export function surveyReducer(state = initialState, action) {
-  return state;
+  switch (action.type) {
+    default:
+      return state;
+  }
 }

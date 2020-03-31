@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { authReducer } from './auth';
-import { surveyReducer } from './survey';
+import { authReducer } from './authReducer';
+import { surveyReducer } from './surveyReducer';
 
 export const rootReducer = combineReducers({
   survey: surveyReducer,
