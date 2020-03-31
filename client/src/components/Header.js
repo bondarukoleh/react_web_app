@@ -7,7 +7,8 @@ export class Header extends Component {
         <div className="nav-wrapper">
           <a className="left brand-logo" href="/">Emaily App</a>
           <ul className="right hide-on-med-and-down" id="nav-mobile ">
-            <li><a href="/auth/google">Login with Google</a></li>
+            {<li><a href="/auth/google">Login with Google</a></li>}
+            <li><a href="/api/current_user">Current user</a></li>
           </ul>
         </div>
       </nav>
