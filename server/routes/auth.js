@@ -8,21 +8,22 @@ function plugAuth(app) {
     scope: ['profile', 'email']
   }));
 
-  app.get('/auth/google/callback', (req, res) => {
-    return res.send(`Hi ${req.user.name}, nice to see you!`)
+  app.get('/auth/google/callback', passport.authenticate('google'), (req, res) => {
+    return res.send(`Hi ${req.user.name}, nice to see you!`);
   });
 
   app.get('/api/current_user', (req, res) => {
-    res.send(`Session - ${req.session.passport.user}, User: ${req.user}`);
+    return res.send(req.user);
     // req.user - userModel added by passport
     // req.session - user id that added by passport when we serialize a user when he logs in
   });
 
   app.get('/api/logout', (req, res) => {
     req.logout(); // function added as a user property by passport, allows to clear cookies from the client-browser
-    res.send(`You are logged out. ${req.user}`)
-  })
+    res.send(`You are logged out. ${req.user}`);
+  });
 }
+
 // router.get('/', passport.authenticate('google', {
 //   scope: ['profile', 'email']
 // }));
@@ -31,7 +32,6 @@ function plugAuth(app) {
 // router.get('/callback', (req, res) =>  {
 //   return res.send('YOU ARE IN CALLBACK')
 // });
-
 
 
 module.exports = {handler: router, url: urls.authGoogle, plugAuth};
