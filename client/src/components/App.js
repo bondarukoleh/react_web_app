@@ -2,8 +2,16 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {Header} from  './Header'
 import 'materialize-css/dist/css/materialize.min.css'
+import * as authActions from '../actions/authActions'
+import {connect} from 'react-redux';
 
 export class App extends Component {
+  componentDidMount() {
+    const {getUser} = this.props;
+    console.log(this.props)
+    // getUser()
+  }
+
   render() {
     return (
       <div className="container">
@@ -60,10 +68,11 @@ function Landing() {
   );
 }
 
-function Login() {
-  return (
-    <header>
-      <a href="/auth/google">Sign in with Google</a>
-    </header>
-  );
-}
+
+const mapStateToProps = store => {
+  return {
+    user: store.user
+  };
+};
+
+export default connect(mapStateToProps, authActions)(App);
