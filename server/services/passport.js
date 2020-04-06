@@ -28,7 +28,7 @@ function useGoogleAuth(passportLib) {
         user = await UserModel.findOne({googleID: profile.id});
       } catch (e) {
         console.log(`Couldn't find User!`);
-        return done(`Ow, we're sorry, something goes wrong ${err.message}. Please give us a call if you have time.`);
+        return done(`Ow, we're sorry, something goes wrong ${e.message}. Please give us a call if you have time.`);
       }
       if (!user) {
         console.log(`Creating a ${profile.displayName} user`);

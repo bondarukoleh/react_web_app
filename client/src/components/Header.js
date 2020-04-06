@@ -1,14 +1,14 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 
-export class Header extends Component {
+class Header extends Component {
 
   userLogged = () => {
     return !!this.props.user;
   };
 
   showContent = () => {
-    if (this.userLogged()) {
+    if (!this.userLogged()) {
       return <li><a href="/auth/google">Login with Google</a></li>;
     } else {
       return <li><a href="/api/current_user">Your user</a></li>;
@@ -31,7 +31,7 @@ export class Header extends Component {
 
 const mapStateToProps = store => {
   return {
-    user: store.user
+    user: store.auth.user
   };
 };
 

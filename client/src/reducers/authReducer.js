@@ -1,4 +1,4 @@
-import {AuthActions} from '../actions'
+import {AuthActions} from '../actions/authActions'
 
 const initialState = {
   user: null
@@ -6,10 +6,8 @@ const initialState = {
 
 export function authReducer(state = initialState, action) {
   switch (action.type) {
-    case AuthActions.loggedUser:
+    case AuthActions.currentUser:
       return {user: action.payload};
-    case AuthActions.userIsNotLogged:
-      return {user: null};
     default:
       return state;
   }

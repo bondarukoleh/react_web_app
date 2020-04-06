@@ -1,20 +1,16 @@
 import axios from 'axios';
 
 export const AuthActions = {
-  loggedUser: 'LOGGED_USER',
-  userIsNotLogged: 'NOT_LOGGED_USER'
+  currentUser: 'CURRENT_USER'
 };
 
-export function getLoggedUser() {
+export function fetchCurrentUserActionCreator() {
   return function (dispatch) {
     axios.get('/api/current_user')
       .then((res) => {
-        console.log('GOT RESPONSE');
-        console.log(res);
-
         return dispatch({
-          type: AuthActions.loggedUser,
-          payload: res
+          type: AuthActions.currentUser,
+          payload: res.data
         });
       })
       .catch(e => console.log(`Couldn't fetch user \n`, e));

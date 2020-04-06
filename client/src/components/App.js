@@ -1,15 +1,13 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import {Header} from  './Header'
+import Header from  './Header'
 import 'materialize-css/dist/css/materialize.min.css'
-import * as authActions from '../actions/authActions'
+import {fetchCurrentUserActionCreator} from '../actions/authActions'
 import {connect} from 'react-redux';
 
-export class App extends Component {
+class App extends Component {
   componentDidMount() {
-    const {getUser} = this.props;
-    console.log(this.props)
-    // getUser()
+    this.props.getCurrentUser()
   }
 
   render() {
@@ -71,8 +69,14 @@ function Landing() {
 
 const mapStateToProps = store => {
   return {
-    user: store.user
+    user: store.auth.user
   };
 };
 
-export default connect(mapStateToProps, authActions)(App);
+const mapDispatchToProps = dispatch => {
+  return {
+    getCurrentUser: () => dispatch(fetchCurrentUserActionCreator())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
