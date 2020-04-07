@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const urls = require('./routes.urls');
+const paths = require('./routes.paths');
 
-router.get('/', (req, res) => {
+router.get(paths.basic, (req, res) => {
   res.send({message: 'Hello buddy!'});
 });
 
-module.exports = {handler: router, url: urls.basic};
+module.exports = {handler: router, path: paths.basic};

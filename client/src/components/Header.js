@@ -3,11 +3,13 @@ import {connect} from 'react-redux';
 
 class Header extends Component {
   showContent = () => {
+    console.log(this.props)
     const {user} = this.props;
-    if (!user) {
+    if (user === null) {
+      return <li>Fetching user data...</li>;
+    } else if (user === false) {
       return <li><a href="/auth/google">Login with Google</a></li>;
     } else {
-      // return <li><a href="/api/current_user">Your user</a></li>;
       return <li>{`Welcome ${user.name}!`}</li>;
     }
   };

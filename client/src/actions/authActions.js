@@ -6,7 +6,7 @@ export const AuthActions = {
 
 export const fetchCurrentUserActionCreator = () => async (dispatch) => {
   try {
-    const response = axios.get('/api/current_user');
+    const response = await axios.get('/api/current_user');
     return dispatch({
       type: AuthActions.currentUser,
       payload: response.data
