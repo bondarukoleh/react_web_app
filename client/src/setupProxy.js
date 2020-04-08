@@ -4,7 +4,7 @@ module.exports = function(app) {
     ['/auth/google', '/api/*'],
     proxy({
       target: 'http://localhost:5000',
-      changeOrigin: true,
+      changeOrigin: false,
     })
   );
 };

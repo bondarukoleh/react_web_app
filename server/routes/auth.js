@@ -9,9 +9,9 @@ function plugAuth(app) {
   }));
 
   app.get(paths.auth.googleCallback, passport.authenticate('google'), (req, res) => {
-   return res.redirect('/surveys')
-   // return res.send('/surveys')
-  });
+      return res.redirect('/surveys');
+    }
+  );
 
   app.get(paths.api.currentUser, (req, res) => {
     return res.send(req.user);
