@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 class Header extends Component {
   showContent = () => {
-    console.log(this.props)
+    console.log(this.props);
     const {user} = this.props;
     if (user === null) {
       return <li>Fetching user data...</li>;
@@ -12,10 +12,11 @@ class Header extends Component {
     } else {
       return <React.Fragment>
         <li>{`Welcome ${user.name}!`}</li>
-        <li><a href="/api/logout">Logout</a></li> {/*We will sent full request to backend with browser refresh,
+        <li><a href="/api/logout">Logout</a></li>
+        {/*We will sent full request to backend with browser refresh,
          but we also could handle this click via creating action "USER_LOGOUT", make inner ajax request to backend,
          without refresh, clear store etc.*/}
-      </React.Fragment>
+      </React.Fragment>;
     }
   };
 

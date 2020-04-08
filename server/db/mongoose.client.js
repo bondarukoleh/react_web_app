@@ -1,11 +1,11 @@
 const mongooseClient = require('mongoose');
-const { DB_USER: user, DB_PASS: password, DB_NAME: name, DB_HOST: host} = require('../config');
+const {DB_USER: user, DB_PASS: password, DB_NAME: name, DB_HOST: host} = require('../config');
 const defaultOption = {retryWrites: true, w: 'majority', useNewUrlParser: true, useUnifiedTopology: true};
 
 const getDbUrl = () => `mongodb+srv://${user}:${password}@${host}`;
 
 class Mongoose {
-  constructor({dbUrl = getDbUrl(), options = defaultOption} = {}){
+  constructor({dbUrl = getDbUrl(), options = defaultOption} = {}) {
     this.mongoose = mongooseClient;
     this.dbUrl = dbUrl;
     this.options = options;
@@ -21,19 +21,19 @@ class Mongoose {
       console.log(`DB connected: ${this.dbUrl}`);
     } catch (e) {
       console.log(`Fail to connect to DB: ${e.message}`);
-      throw new Error(`Error while connecting to DB: "${e.message}"`)
+      throw new Error(`Error while connecting to DB: "${e.message}"`);
     }
     return this.connection;
   }
 
-  async disconnect(){
+  async disconnect() {
     try {
       console.log(`Disconnecting from: ${this.dbUrl}, with options: %j`, this.options);
       await this.connection.connection.close();
       console.log(`BD disconnected: ${this.dbUrl}`);
     } catch (e) {
       console.log(`Fail to disconnect to DB: ${e.message}`);
-      throw new Error(`Error while connecting to DB: "${e.message}"`)
+      throw new Error(`Error while connecting to DB: "${e.message}"`);
     }
   }
 }

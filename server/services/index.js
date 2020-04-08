@@ -1,5 +1,5 @@
 const {useGoogleAuth} = require('./passport');
-const pluginRoutes = require('./routes')
+const pluginRoutes = require('./routes');
 
 module.exports = {
   useGoogleAuth,

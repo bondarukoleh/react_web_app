@@ -12,6 +12,6 @@ export const fetchCurrentUserActionCreator = () => async (dispatch) => {
       payload: response.data
     });
   } catch (e) {
-    console.log(`Couldn't fetch user \n`, e)
+    console.log(`Couldn't fetch user \n`, e);
   }
-}
+};

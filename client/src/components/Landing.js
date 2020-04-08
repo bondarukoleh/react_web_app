@@ -5,12 +5,12 @@ class Landing extends Component {
   render() {
     const divStyle = {
       textAlign: 'center'
-    }
+    };
 
     return <div style={divStyle}>
       <h2>Emaily!</h2>
       Collect feedback about your application easily!
-    </div>
+    </div>;
   }
 }
 

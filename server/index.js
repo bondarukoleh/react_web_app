@@ -16,6 +16,7 @@ useGoogleAuth(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 pluginRoutes(app);
+
 // routes
 
 function getServer(port = process.env.PORT || 5000) {
