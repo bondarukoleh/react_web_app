@@ -21,7 +21,7 @@ function plugAuth(app) {
 
   app.get(paths.api.logout, (req, res) => {
     req.logout(); // function added as a user property by passport, allows to clear cookies from the client-browser
-    res.send(`You are logged out. ${req.user}`);
+    res.redirect('/');
   });
 }
 

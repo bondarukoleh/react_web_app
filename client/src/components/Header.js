@@ -10,7 +10,12 @@ class Header extends Component {
     } else if (user === false) {
       return <li><a href="/auth/google">Login with Google</a></li>;
     } else {
-      return <li>{`Welcome ${user.name}!`}</li>;
+      return <React.Fragment>
+        <li>{`Welcome ${user.name}!`}</li>
+        <li><a href="/api/logout">Logout</a></li> {/*We will sent full request to backend with browser refresh,
+         but we also could handle this click via creating action "USER_LOGOUT", make inner ajax request to backend,
+         without refresh, clear store etc.*/}
+      </React.Fragment>
     }
   };
 
@@ -18,7 +23,7 @@ class Header extends Component {
     return (
       <nav>
         <div className="nav-wrapper">
-          <a className="left brand-logo" href="/">Emaily App</a>
+          <a className="brand-logo center" href="/">Logo</a>
           <ul className="right hide-on-med-and-down" id="nav-mobile ">
             {this.showContent()}
           </ul>

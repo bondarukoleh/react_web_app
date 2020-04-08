@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Header from  './Header'
-import 'materialize-css/dist/css/materialize.min.css'
-import {fetchCurrentUserActionCreator} from '../actions/authActions'
+import Header from './Header';
+import Landing from './Landing';
+import 'materialize-css/dist/css/materialize.min.css';
+import {fetchCurrentUserActionCreator} from '../actions/authActions';
 import {connect} from 'react-redux';
 
 class App extends Component {
   componentDidMount() {
-    this.props.getCurrentUser()
+    this.props.getCurrentUser();
   }
 
   render() {
@@ -57,15 +58,6 @@ function Dashboard() {
     </div>
   );
 }
-
-function Landing() {
-  return (
-    <div>
-      <h2>Landing</h2>
-    </div>
-  );
-}
-
 
 const mapStateToProps = store => {
   return {
