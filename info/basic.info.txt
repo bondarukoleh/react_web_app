@@ -125,3 +125,14 @@ picked up "materialize css"
 Webpack that comes with create-react-app package, and beside it compiles all js modules and files in one, it cat also
 include other extensions like css, called loaders, so when we are adding css import in our js files webpack will add
 them also.
+
+a vs Link (from React Router)
+We use anchor, when we want User to be redirected to completely different html document, in different domain, like login
+via google.
+We use Link (React Router) when we wont to navigate User to some other route hosted by React Router inside our
+application.
+
+About payment.
+Don't store raw credit card numbers, or store them in your DB, or process payment on your side. Always use outside
+payment service (vendor) that will handle all these stuff on it's side. We will use billing system mock, but for prod -
+we could use "stripe".

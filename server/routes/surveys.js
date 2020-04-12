@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const paths = require('./routes.paths');
 
-router.get(paths.surveys.root, (req, res) => {
+router.get('/', (req, res) => {
   res.send({message: 'This is surveys from API'});
 });
 
-module.exports = {handler: router, url: urls.basic};
+module.exports = {handler: router, path: paths.surveys};
