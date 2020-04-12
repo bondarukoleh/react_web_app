@@ -47,6 +47,7 @@ export const fetchBillingResult = ({cardHolder, cardNumber, paymentAmount}) => a
           type: BillingActions.billingSuccess,
           payload: addCreditResp.data
         });
+        window.location = '/surveys' // TODO: Make it more pretty
       } catch (e) {
         console.log(`Couldn't add credit to user \n`, e); // TODO: Make global error
       }
