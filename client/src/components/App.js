@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Header from './Header';
 import Landing from './Landing';
-import BillingForm from './BillingForm'
+import BillingForm from './BillingForm';
 import 'materialize-css/dist/css/materialize.min.css';
 import {fetchCurrentUserActionCreator} from '../actions/authActions';
 import {connect} from 'react-redux';

@@ -8,7 +8,7 @@ const UserModel = mongoose.model('users');
 router.post('/billing', (req, res) => {
   setTimeout(() => {
     return res.send({billingDone: true, creditAmount: req.body.paymentAmount});
-  }, 2000)
+  }, 2000);
 });
 
 router.post('/add', async (req, res) => {
@@ -17,7 +17,7 @@ router.post('/add', async (req, res) => {
     const newCreditsAmount = user.credit + Number(req.body.creditAmount);
     await user.set({credit: newCreditsAmount}).save();
     // return res.redirect('/surveys') // TODO: figure out why it's not working
-    return res.send({addedCredits: newCreditsAmount})
+    return res.send({addedCredits: newCreditsAmount});
   } catch (e) {
     return res.send({error: `Couldn't update User credit, we will return the money!!!`});
   }
