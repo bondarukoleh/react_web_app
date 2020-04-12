@@ -29,32 +29,23 @@ export const paymentAmountActionCreator = (paymentAmountValue) => (dispatch) => 
   });
 };
 
-export const fetchBillingResult = ({cardHolder, cardNumber, user}) => async (dispatch) => {
-  const getBillingCredit = {
-    method: 'get',
-    url: '/api/credit/billing',
-    params: {
-      cardNumber, cardHolder
-    },
-  }
-
+export const fetchBillingResult = ({cardHolder, cardNumber, paymentAmount}) => async (dispatch) => {
   try {
-    const {status, data} = await axios(getBillingCredit);
-    console.log('GOT FROM SERVER ', status, data)
+    const {data} = await axios.post('/api/credit/billing', {cardNumber, cardHolder, paymentAmount});
     if(data.billingDone) {
       try {
-        const {data} = await axios.post('/api/credit/add', {
+        const addCreditResp = await axios.post('/api/credit/add', {
           creditAmount: data.creditAmount
         });
-        if(data.error) {
+        if(addCreditResp.data && addCreditResp.data.error) {
           return dispatch({
             type: BillingActions.billingFail,
-            payload: false
+            payload: addCreditResp.data.error
           });
         }
         dispatch({
           type: BillingActions.billingSuccess,
-          payload: data
+          payload: addCreditResp.data
         });
       } catch (e) {
         console.log(`Couldn't add credit to user \n`, e); // TODO: Make global error

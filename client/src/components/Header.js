@@ -12,7 +12,8 @@ class Header extends Component {
     } else {
       return <React.Fragment>
         <li>{`Welcome ${user.name}!`}</li>
-        <li><Link to="/billing">Add credit</Link></li>
+        <li><Link to="#">{`Your credits: ${user.credit}`}</Link></li>
+        <li><Link to="/billing">Add more credit</Link></li>
         <li><a href="/api/logout">Logout</a></li>
         {/*We will sent full request to backend with browser refresh,
          but we also could handle this click via creating action "USER_LOGOUT", make inner ajax request to backend,

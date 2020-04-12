@@ -9,9 +9,9 @@ import {
 
 class BillingForm extends Component {
   handleSubmit = (e) => {
-    const {performPayment, cardHolder, cardNumber} = this.props;
+    const {performPayment, cardHolder, cardNumber, paymentAmount} = this.props;
     e.preventDefault();
-    performPayment({cardHolder, cardNumber});
+    performPayment({cardHolder, cardNumber, paymentAmount});
   };
 
   handleInputChange = (e) => {
@@ -30,6 +30,7 @@ class BillingForm extends Component {
     const {cardHolder, cardNumber, paymentAmount, billingDone} = this.props;
     return (
       <React.Fragment>
+        {billingDone && billingDone.error && <h4>billingDone.error</h4>}
         <h6>Billing form mock. We'll not charge you any monet, no worries.</h6>
         <form onSubmit={this.handleSubmit}>
           <label>

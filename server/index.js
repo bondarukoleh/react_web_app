@@ -15,6 +15,7 @@ app.use(cookieSession({maxAge: 2592000000, keys: [COOKIE_KEY]}));
 useGoogleAuth(passport);
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(express.json());
 pluginRoutes(app);
 
 // routes

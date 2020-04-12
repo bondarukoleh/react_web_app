@@ -5,25 +5,22 @@ const mongoose = require('mongoose');
 const paths = require('./routes.paths');
 const UserModel = mongoose.model('users');
 
-router.get('/billing', (req, res) => {
-  console.log('PARAMS FROM REQUEST')
-  console.log(req.params)
+router.post('/billing', (req, res) => {
   setTimeout(() => {
-    return res.send({billingDone: true});
+    return res.send({billingDone: true, creditAmount: req.body.paymentAmount});
   }, 2000)
 });
 
 router.post('/add', async (req, res) => {
-  console.log('BODY FROM REQUEST')
-  console.log(req.body)
-  // try {
-  //   const user = await UserModel.findOne({googleID: req.user.googleID});
-  //   await user.set({credit: Number(req.body.creditAmount)}).save();
-  //   return res.redirect('/surveys')
-  // } catch (e) {
-  //   return res.send({error: `Couldn't update User credit, we will return the money!!!`});
-  // }
-  return res.redirect('/billing')
+  try {
+    const user = await UserModel.findOne({googleID: req.user.googleID});
+    const newCreditsAmount = user.credit + Number(req.body.creditAmount);
+    await user.set({credit: newCreditsAmount}).save();
+    // return res.redirect('/surveys') // TODO: figure out why it's not working
+    return res.send({addedCredits: newCreditsAmount})
+  } catch (e) {
+    return res.send({error: `Couldn't update User credit, we will return the money!!!`});
+  }
 });
 
 module.exports = {handler: router, path: paths.apiCredit};
