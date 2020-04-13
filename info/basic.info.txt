@@ -86,6 +86,7 @@ Model class also gives us access to instance(s) of rows. It returns record, or r
 React app
 React has his own server, that is responsible for the UI, for JS.
 Express server - responsible for the backend and for generating and providing JSON data.
+TIP: express by default DOESN"T PARSE POST request body, so use app.use(express.json()) or "body-parser" package.
 
 In dev mode - there will be two separate servers react dev server and express. That's why we need react-proxy set up, to
 not hardcoded all the links when we want user to be redirected to express, but keep the relative style. React server

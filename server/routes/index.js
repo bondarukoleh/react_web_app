@@ -1,7 +1,7 @@
 module.exports = {
   auth: require('./auth'),
   basic: require('./basic'),
-  credit: require('./credit'),
+  payment: require('./payment'),
   logout: require('./logout'),
   currentUser: require('./current.user'),
   surveys: require('./surveys'),

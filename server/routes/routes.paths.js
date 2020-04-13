@@ -10,7 +10,7 @@
 //   surveys: {
 //     root: '/surveys'
 //   },
-//   credit: {
+//   payment: {
 //     billing: '/api/credit_billing',
 //     add: '/api/credit_add'
 //   },
@@ -22,6 +22,6 @@ module.exports = {
   apiLogout: '/api/logout',
   apiCurrentUser: '/api/current_user',
   surveys: '/surveys',
-  apiCredit: '/api/credit',
+  apiPayment: '/api/payment',
   basic: '/',
 };

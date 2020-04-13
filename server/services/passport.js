@@ -34,7 +34,7 @@ function useGoogleAuth(passportLib) {
         console.log(`Creating a ${profile.displayName} user`);
         let newUser = null;
         try {
-          newUser = await new UserModel({googleID: profile.id, name: profile.displayName, credit: 0}).save();
+          newUser = await new UserModel({googleID: profile.id, name: profile.displayName}).save();
           console.log('User created');
           return done(null, newUser); // at this point serializeUser function called with createdUser
         } catch (e) {
