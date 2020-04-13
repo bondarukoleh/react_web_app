@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Header from './Header';
 import Landing from './Landing';
-import BillingForm from './BillingForm';
 import 'materialize-css/dist/css/materialize.min.css';
 import {fetchCurrentUserActionCreator} from '../actions/authActions';
 import {connect} from 'react-redux';
@@ -28,9 +27,6 @@ class App extends Component {
             </Route>
             <Route exact path="/surveys/new">
               <SurveyNew/>
-            </Route>
-            <Route exact path="/billing">
-              <BillingForm/>
             </Route>
           </Switch>
         </Router>

@@ -135,4 +135,9 @@ application.
 About payment.
 Don't store raw credit card numbers, or store them in your DB, or process payment on your side. Always use outside
 payment service (vendor) that will handle all these stuff on it's side. We will use billing system mock, but for prod -
-we could use "stripe".
+we could use "stripe". Js plugin - "react-stripe-checkout".
+
+Custom env variables in React app - https://create-react-app.dev/docs/adding-custom-environment-variables/
+Basically same stuff, but we need to add REACT_APP_ before variables in React app.
+we can add one time vars set "REACT_APP_NOT_SECRET_CODE=abcdef" && npm start / REACT_APP_NOT_SECRET_CODE=abcdef npm start
+or via .env file

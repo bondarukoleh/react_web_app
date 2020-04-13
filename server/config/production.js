@@ -5,7 +5,9 @@ const {
   DB_PASS,
   DB_NAME,
   DB_HOST,
-  COOKIE_KEY
+  COOKIE_KEY,
+  STRIPE_PUB_KEY,
+  STRIPE_SEC_KEY,
 } = process.env;
 
 module.exports = {
@@ -15,5 +17,7 @@ module.exports = {
   DB_PASS,
   DB_NAME,
   DB_HOST,
-  COOKIE_KEY
+  COOKIE_KEY,
+  STRIPE_PUB_KEY,
+  STRIPE_SEC_KEY,
 };

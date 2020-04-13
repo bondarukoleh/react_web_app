@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import Payments from './Payments';
 
 class Header extends Component {
   showHeaderContent = () => {
@@ -11,14 +12,15 @@ class Header extends Component {
       return <li><a href="/auth/google">Login with Google</a></li>;
     } else {
       return <React.Fragment>
-        <li>{`Welcome ${user.name}!`}</li>
-        <li><Link to="#">{`Your credits: ${user.credit}`}</Link></li>
-        <li><Link to="/billing">Add more credit</Link></li>
-        <li><a href="/api/logout">Logout</a></li>
+        <li id="welcome">{`Welcome ${user.name}!`}</li>
+        <li id="credits"><Link to="#">{`Your credits: ${user.credit}`}</Link></li>
+        {/*<li id="add_credits"><Link to="/billing">Add more credit</Link></li>*/}
+        <li id="add_credits"><Payments/></li>
+        <li id="logout"><a href="/api/logout">Logout</a></li>
         {/*We will sent full request to backend with browser refresh,
          but we also could handle this click via creating action "USER_LOGOUT", make inner ajax request to backend,
          without refresh, clear store etc.*/}
-      </React.Fragment>;
+      </React.Fragment>
     }
   };
 
@@ -28,7 +30,7 @@ class Header extends Component {
     return (
       <nav>
         <div className="nav-wrapper">
-          <Link className="brand-logo center" to={user ? '/surveys' : '/'}>Logo</Link>
+          <Link className="brand-logo left" to={user ? '/surveys' : '/'}>Logo</Link>
           <ul className="right hide-on-med-and-down" id="nav-mobile ">
             {this.showHeaderContent()}
           </ul>
