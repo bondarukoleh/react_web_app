@@ -1,3 +1,5 @@
+import {onProd} from "./helpers/common";
+
 const express = require('express');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
@@ -19,7 +21,22 @@ app.use(express.json());
 pluginRoutes(app);
 
 // production routes
-serveProdBuild(app)
+// serveProdBuild(app)
+// TODO: HOTFIX will refactor further
+if (onProd()) {
+  const indexHtmlPath = path.resolve(process.cwd(), 'client/build/index.html')
+  // if express get's something he doesn't know - take a look in build directory for that
+  app.use(express.static('client/build'))
+
+  app.get(/.*manifest.*/, (req, res) => {
+    res.sendFile(path.resolve(process.cwd(), 'client/build/manifest.json'))
+  })
+
+  // if express couldn't find anything from client/build - just serve index.html file
+  app.get('*', (req, res) => {
+    res.sendFile(indexHtmlPath)
+  })
+}
 
 function getServer(port = process.env.PORT || 5000) {
   return app.listen(port, () => console.log(`App is listening on port ${port}.`));
