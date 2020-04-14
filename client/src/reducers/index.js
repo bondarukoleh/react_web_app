@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
-import {authReducer} from './authReducer';
-import {surveyReducer} from './surveyReducer';
-// import {billingReducer} from './billingReducer';
+import {authReducer} from './auth.reducer';
+import {surveyReducer} from './survey.reducer';
+import {paymentReducer} from './payment.reducer';
 
 export const rootReducer = combineReducers({
   survey: surveyReducer,
   auth: authReducer,
-  // billing: billingReducer
+  payment: paymentReducer
 });
