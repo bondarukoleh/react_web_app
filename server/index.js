@@ -1,11 +1,10 @@
-import {onProd} from "./helpers/common";
-
 const express = require('express');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const {client} = require('./db');
 const {useGoogleAuth, pluginRoutes, serveProdBuild} = require('./services');
 const {COOKIE_KEY} = require('./config');
+const {onProd} = require('./helpers/common');
 
 const app = express();
 
