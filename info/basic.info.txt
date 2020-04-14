@@ -92,9 +92,17 @@ In dev mode - there will be two separate servers react dev server and express. T
 not hardcoded all the links when we want user to be redirected to express, but keep the relative style. React server
 gives us live-reload and linting mostly, so there not much magic in it.
 In prod mode, we build react prod build "npm run build", and there will be only one server that will return production
-html and bundle from "public" directory, where create-react-app stored it after we asl him to make us a prod build.
+html and bundle from "build" directory, where create-react-app stored it after we ask him to make us a prod build.
 So when we keep relative links in our code - we don't need super-prod-checks in our code, everything will work in prod
 and in dev.
+So there will be only our express server, but what about routes that we've defined in React app like "/surveys""?
+express server if gets request to some url it doesn't know about will return index html file to the client, that's the
+only thing he can do, in client\build\index.html file there is a link to script that index want to get from express -
+client\build\static\js\main.4f595ecb.chunk.js which is going to load the react library, and react library with react
+Router inside will se that "/surveys" request and understood that he needs to return the right component.
+So we need to explain express server that if he gets something he doesn't know - return the index.html and if he gets
+the get main.js script request - return actual script or any other asset (like css file or else).
+See schemes for more info.
 
 Thing with proxying request in dev mode from one server to another have a few strengths:
 1. Cookies included automatically only to request from client to domain source html comes from, so when we requesting

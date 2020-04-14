@@ -2,15 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 const paths = require('./routes.paths');
+const {isLoggedIn} = require('../middleware/authorization')
 const {STRIPE_SEC_KEY} = require('../config');
 
-router.post('/billing', (req, res) => {
-  setTimeout(() => {
-    return res.send({billingDone: true, creditAmount: req.body.paymentAmount});
-  }, 2000);
-});
-
-router.post('/token', async (req, res) => {
+router.post('/token', isLoggedIn, async (req, res) => {
   const stripe = require('stripe')(STRIPE_SEC_KEY);
   const {id} = req.body;
 

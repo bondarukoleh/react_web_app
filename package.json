@@ -8,9 +8,10 @@
     "server_dev": "nodemon",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server_dev\" \"npm run client\"",
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "cd client && npm i --no-audit && cd .."
+    "postinstall": "npm i --prefix client --no-audit",
+    "heroku-postbuild": "npm run build --prefix client"
   },
   "repository": {
     "type": "git",
