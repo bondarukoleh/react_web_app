@@ -1,6 +1,7 @@
 const express = require('express');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const path = require('path')
 const {client} = require('./db');
 const {useGoogleAuth, pluginRoutes, serveProdBuild} = require('./services');
 const {COOKIE_KEY} = require('./config');
