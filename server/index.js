@@ -23,13 +23,10 @@ pluginRoutes(app);
 // serveProdBuild(app)
 // TODO: HOTFIX will refactor further
 if (onProd()) {
-  const indexHtmlPath = path.resolve(process.cwd(), 'client/build/index.html')
+  const buildPath = path.resolve(process.cwd(), 'client/build')
+  const indexHtmlPath = path.join(buildPath, 'index.html')
   // if express get's something he doesn't know - take a look in build directory for that
-  app.use(express.static('client/build'))
-
-  app.get(/.*manifest.*/, (req, res) => {
-    res.sendFile(path.resolve(process.cwd(), 'client/build/manifest.json'))
-  })
+  app.use(express.static(buildPath))
 
   // if express couldn't find anything from client/build - just serve index.html file
   app.get('*', (req, res) => {
