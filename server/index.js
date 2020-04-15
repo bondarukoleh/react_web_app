@@ -20,20 +20,8 @@ app.use(passport.session());
 app.use(express.json());
 pluginRoutes(app);
 
-// production routes
-// serveProdBuild(app)
-// TODO: HOTFIX will refactor further
-if (onProd()) {
-  const buildPath = path.resolve(process.cwd(), 'client/build')
-  const indexHtmlPath = path.join(buildPath, 'index.html')
-  // if express get's something he doesn't know - take a look in build directory for that
-  app.use(express.static(buildPath))
-
-  // if express couldn't find anything from client/build - just serve index.html file
-  app.get('*', (req, res) => {
-    res.sendFile(indexHtmlPath)
-  })
-}
+// serve frontend on production
+serveProdBuild(app)
 
 function getServer(port = process.env.PORT || 5000) {
   return app.listen(port, () => console.log(`App is listening on port ${port}.`));
