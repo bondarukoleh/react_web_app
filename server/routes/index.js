@@ -3,4 +3,5 @@ module.exports = {
   payment: require('./payment'),
   logout: require('./logout'),
   currentUser: require('./current.user'),
+  surveys: require('./surveys'),
 };

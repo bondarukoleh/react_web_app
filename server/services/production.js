@@ -3,7 +3,7 @@ const path = require('path')
 const {onProd} = require('../helpers/common');
 
 function serveProdBuild(app) {
-  // if (onProd()) {
+  if (onProd()) {
     const buildPath = path.resolve(process.cwd(), 'client/build')
     const indexHtmlPath = path.join(buildPath, 'index.html')
     // if express get's something he doesn't know - take a look in build directory for that
@@ -13,7 +13,7 @@ function serveProdBuild(app) {
     app.get('*', (req, res) => {
       res.sendFile(indexHtmlPath)
     })
-  // }
+  }
 }
 
 module.exports = serveProdBuild;

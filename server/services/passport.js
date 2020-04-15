@@ -2,7 +2,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const {GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET} = require('../config');
 const mongoose = require('mongoose');
 // in models module we defined a Model for users. Now we are getting it.
-const UserModel = mongoose.model('users');
+const UserModel = mongoose.model('user');
 
 
 function useGoogleAuth(passportLib) {

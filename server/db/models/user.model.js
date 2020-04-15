@@ -7,6 +7,6 @@ const userScheme = new Schema({
   credit: {type: Number, required: true, default: 0},
 });
 
-const Model = mongoose.model('users', userScheme);
+const Model = mongoose.model('user', userScheme);
 
 module.exports = {Model};
