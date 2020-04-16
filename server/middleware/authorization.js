@@ -5,4 +5,12 @@ function isLoggedIn(req, res, next) {
   next()
 }
 
-module.exports = {isLoggedIn};
+function hasCredits(req, res, next) {
+  if (req.user.credit < 1) {
+    return res.status(403).send({error: `You don't have enough credits.`});
+  }
+  next()
+}
+
+
+module.exports = {isLoggedIn, hasCredits};
