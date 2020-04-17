@@ -1,6 +1,6 @@
 const dbModels = {
   user: require('./user.model'),
-  survey: require('./survey.model'),
+  survey: require('./survey'),
 };
 
 module.exports = dbModels;
