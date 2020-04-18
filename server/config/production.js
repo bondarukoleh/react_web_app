@@ -8,6 +8,7 @@ const {
   COOKIE_KEY,
   STRIPE_PUB_KEY,
   STRIPE_SEC_KEY,
+  MAIL_SERVER_KEY,
 } = process.env;
 
 module.exports = {
@@ -20,4 +21,5 @@ module.exports = {
   COOKIE_KEY,
   STRIPE_PUB_KEY,
   STRIPE_SEC_KEY,
+  MAIL_SERVER_KEY,
 };
