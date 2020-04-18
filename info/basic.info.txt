@@ -150,3 +150,6 @@ Custom env variables in React app - https://create-react-app.dev/docs/adding-cus
 Basically same stuff, but we need to add REACT_APP_ before variables in React app.
 we can add one time vars set "REACT_APP_NOT_SECRET_CODE=abcdef" && npm start / REACT_APP_NOT_SECRET_CODE=abcdef npm start
 or via .env file
+
+fetch('/api/surveys', {method: "POST", body: JSON.stringify({title: '', subject: ''}),
+ headers: { "Content-Type": "application/json" }}).then(console.log, console.log)

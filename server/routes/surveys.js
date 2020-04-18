@@ -3,17 +3,12 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const paths = require('./routes.paths');
 const {isLoggedIn, hasCredits} = require('../middleware/authorization');
-const {mail: {Mailer, templates}} = require('../services')
+const {templates, Mailer} = require('../helpers/emails');
 
 const Survey = mongoose.model('survey');
 
-router.post('/', [isLoggedIn, hasCredits], (req, res) => {
-  const {
-    title,
-    subject,
-    body,
-    recipients,
-  } = req.body;
+router.post('/', [isLoggedIn, hasCredits], async (req, res) => {
+  const {title, subject, body, recipients} = req.body;
 
   const survey = new Survey({
     title,
@@ -29,10 +24,29 @@ router.post('/', [isLoggedIn, hasCredits], (req, res) => {
   *  figure out who clicked it. Links that inform application that something just happened called webhooks, or web
   *  callbacks or reverse API */
 
-  const mailer = new Mailer({title, subject, recipients, content: templates.surveyTemplate(body)});
+  const mailerConfig = {
+    romEmail: 'bondarukqaqa@gmail.com',
+    subject,
+    recipients,
+    content: templates.surveyTemplate(body)
+  };
 
+  const mailer = new Mailer(mailerConfig);
+  try {
+    await mailer.sendSurvey();
+    return res.status(201).send({message: 'Done!'});
+  } catch (error) {
+    // Log friendly error
+    console.error(error);
 
-  return res.send(req.user);
+    if (error.response) {
+      // Extract error msg
+      const {message, code, response} = error;
+      const {headers, body} = response;
+      console.error(body);
+    }
+    return res.status(500).send({error: `Couldn't send the survey! ${error.message}`});
+  }
 });
 
 module.exports = {handler: router, path: paths.surveys};

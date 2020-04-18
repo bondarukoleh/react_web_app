@@ -1,0 +1,14 @@
+// !!! Rename file from dev.dist -> dev.js, and provide values to variables.
+
+module.exports = {
+  GOOGLE_CLIENT_ID: '',
+  GOOGLE_CLIENT_SECRET: '',
+  DB_USER: '',
+  DB_PASS: '',
+  DB_NAME: '',
+  DB_HOST: '',
+  COOKIE_KEY: '',
+  STRIPE_PUB_KEY: '',
+  STRIPE_SEC_KEY: '',
+  MAIL_SERVER_KEY: ''
+};
