@@ -1,4 +1,4 @@
-const {onProd} = require('../helpers/common')
+const {onProd} = require('../helpers/common');
 
 function checkEnvVars(config) {
   if (!config.GOOGLE_CLIENT_ID || !config.GOOGLE_CLIENT_SECRET) {

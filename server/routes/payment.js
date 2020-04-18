@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const paths = require('./routes.paths');
-const {isLoggedIn} = require('../middleware/authorization')
+const {isLoggedIn} = require('../middleware/authorization');
 const {STRIPE_SEC_KEY} = require('../config');
 
 router.post('/token', isLoggedIn, async (req, res) => {

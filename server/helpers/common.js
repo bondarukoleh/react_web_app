@@ -6,4 +6,4 @@ function onProd() {
   return onProdRegExp.test(NODE_ENV);
 }
 
-module.exports = {onProd}
+module.exports = {onProd};

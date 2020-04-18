@@ -19,7 +19,7 @@ class Header extends Component {
         {/*We will sent full request to backend with browser refresh,
          but we also could handle this click via creating action "USER_LOGOUT", make inner ajax request to backend,
          without refresh, clear store etc.*/}
-      </React.Fragment>
+      </React.Fragment>;
     }
   };
 

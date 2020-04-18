@@ -54,7 +54,11 @@ router.post('/', [isLoggedIn, hasCredits], async (req, res) => {
 
 // TODO: move to the client side
 router.get('/thanks', (req, res) => {
-  res.send(`Thank you for the participating!`)
-})
+  res.send(`Thank you for the participating! We glad you like it!`);
+});
+
+router.get('/sorry', (req, res) => {
+  res.send(`Thank you for the participating! We'll try to make it better!`);
+});
 
 module.exports = {handler: router, path: paths.surveys};

@@ -3,7 +3,7 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const {client} = require('./db');
 const {useGoogleAuth, pluginRoutes, serveProdBuild} = require('./services');
-const {COOKIE_KEY, REACT_SERVER_PORT} = require('./config');
+const {COOKIE_KEY} = require('./config');
 
 const app = express();
 
@@ -19,7 +19,7 @@ app.use(express.json());
 pluginRoutes(app);
 
 // serve frontend on production
-serveProdBuild(app)
+serveProdBuild(app);
 
 function getServer(port = process.env.PORT || 5000) {
   return app.listen(port, () => console.log(`App is listening on port ${port}.`));

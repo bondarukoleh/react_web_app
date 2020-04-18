@@ -1,16 +1,16 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 import StripeCheckout from "react-stripe-checkout";
-import {sendUserPaymentToken} from '../actions/paymentActions'
+import {sendUserPaymentToken} from '../actions/paymentActions';
 
 const {REACT_APP_STRIPE_PUB_KEY} = process.env;
 
 class Payments extends Component {
   stripePaymentCallback = (tokenObj) => {
-    console.log(`Your token id ${tokenObj.id}, email - ${tokenObj.email}`)
-    const {sendPaymentToken} = this.props
-    sendPaymentToken(tokenObj)
-  }
+    console.log(`Your token id ${tokenObj.id}, email - ${tokenObj.email}`);
+    const {sendPaymentToken} = this.props;
+    sendPaymentToken(tokenObj);
+  };
 
   render() {
     return (
