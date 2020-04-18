@@ -8,7 +8,7 @@ class Mailer {
     this.subject = subject;
     this.content = content;
     this.recipients = recipients;
-    this.from = fromEmail;
+    this.from_email = fromEmail;
   }
 
   async sendSurvey() {
@@ -16,7 +16,7 @@ class Mailer {
       to: this.recipients,
       subject: this.subject,
       html: this.content,
-      from: this.from,
+      from: this.from_email,
       trackingSettings: {
         clickTracking: {
           enable: true

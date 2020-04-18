@@ -25,16 +25,19 @@ router.post('/', [isLoggedIn, hasCredits], async (req, res) => {
   *  callbacks or reverse API */
 
   const mailerConfig = {
-    romEmail: 'bondarukqaqa@gmail.com',
+    fromEmail: 'bondarukqaqa@gmail.com',
     subject,
-    recipients,
+    recipients: recipients.map(({email}) => email),
     content: templates.surveyTemplate(body)
   };
 
   const mailer = new Mailer(mailerConfig);
   try {
     await mailer.sendSurvey();
-    return res.status(201).send({message: 'Done!'});
+    await survey.save();
+    req.user.credit -= 1;
+    const user = await req.user.save();
+    return res.send(user);
   } catch (error) {
     // Log friendly error
     console.error(error);
@@ -45,8 +48,13 @@ router.post('/', [isLoggedIn, hasCredits], async (req, res) => {
       const {headers, body} = response;
       console.error(body);
     }
-    return res.status(500).send({error: `Couldn't send the survey! ${error.message}`});
+    return res.status(422).send({error: `Couldn't send the survey! ${error.message}`});
   }
 });
+
+// TODO: move to the client side
+router.get('/thanks', (req, res) => {
+  res.send(`Thank you for the participating!`)
+})
 
 module.exports = {handler: router, path: paths.surveys};

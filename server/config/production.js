@@ -9,6 +9,7 @@ const {
   STRIPE_PUB_KEY,
   STRIPE_SEC_KEY,
   MAIL_SERVER_KEY,
+  HOST,
 } = process.env;
 
 module.exports = {
@@ -22,4 +23,5 @@ module.exports = {
   STRIPE_PUB_KEY,
   STRIPE_SEC_KEY,
   MAIL_SERVER_KEY,
+  HOST,
 };

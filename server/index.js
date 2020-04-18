@@ -3,7 +3,7 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const {client} = require('./db');
 const {useGoogleAuth, pluginRoutes, serveProdBuild} = require('./services');
-const {COOKIE_KEY} = require('./config');
+const {COOKIE_KEY, REACT_SERVER_PORT} = require('./config');
 
 const app = express();
 
