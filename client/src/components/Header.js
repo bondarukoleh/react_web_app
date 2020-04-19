@@ -30,7 +30,7 @@ class Header extends Component {
     return (
       <nav>
         <div className="nav-wrapper">
-          // TODO: polish layout of logo
+          {/*TODO: polish layout of logo*/}
           <Link className="brand-logo left" to={user ? '/surveys' : '/'}><img src={logo} alt="Logo" style={{width: '50px',
             height: '50px'}}></img></Link>
           <ul className="right hide-on-med-and-down" id="nav-mobile ">
