@@ -13,7 +13,7 @@ class SurveyForm extends Component {
 
     return (<div>
       {fieldProps.map(({label, name}) => {
-        return <Field label={label} component={SurveyField} type='text' name={name} key={name}/>
+        return <Field label={label} component={SurveyField} type='text' name={name} key={name}/>;
       })}
     </div>);
   };
@@ -33,4 +33,13 @@ class SurveyForm extends Component {
   }
 }
 
-export default reduxForm({form: 'survey'})(SurveyForm);
+function validate(formValues) {
+  const {title, subject, body, recipients} = formValues;
+  const error = {};
+  if (!title) {
+    error.title = 'You must provide a title to survey!'
+  }
+  return error; // if errors object will be empty -> redux-form will not throw error
+}
+
+export default reduxForm({form: 'survey', validate})(SurveyForm); // name should be "form", my god, wth
