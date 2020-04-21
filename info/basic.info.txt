@@ -117,6 +117,9 @@ React proxy is greedy, it takes all request that starts with '/auth/google', mea
 We'll try to keep all data/redux layer/logic in src/index.js, and all render/react layer/logic in App.js
 
 React-redux provides a layer of connection between redux state and react components.
+Note about where we should keep state. If there no affect on application state from component, then keep state on
+component level. If you realize that change this component state affects, or needed somewhere else in the app, or some
+other component will use it - then create action creator, action, reducer, and add this logic in redux level.
 
 React-router is a basic library with routing, React-router-dom for all apps that somehow working with dom,
 React-router-native is for the react-native apps.

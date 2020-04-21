@@ -5,11 +5,15 @@ import React from "react";
 * so we will extract those handlers to our input element we returning.
 * */
 
-const SurveyField = ({input, label}) => {
-  return (<div>
-    <label>{label}</label>
-    <input {...input}/>
-  </div>);
+const SurveyField = ({input, label, meta: {error, touched}}) => {
+  return (
+    <div>
+      <label>{label}</label>
+      <input style={{marginBottom: '5px'}} {...input}/>
+      <div className="red-text" style={{marginBottom: '20px'}}>
+        {touched && error}
+      </div>
+    </div>);
 };
 
 export default SurveyField;
