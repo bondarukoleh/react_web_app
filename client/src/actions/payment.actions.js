@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {AuthActions} from "./authActions";
+import {AuthActions} from "./auth.actions";
 
 export const BillingActions = {
   billingFail: 'BILLING_FAIL'

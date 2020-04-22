@@ -5,6 +5,11 @@ import Payments from './Payments';
 import logo from '../media/emaily_logo.png'
 
 class Header extends Component {
+  state = {
+    showSurveyError: false,
+    showSurveySuccess: false,
+  }
+
   showHeaderContent = () => {
     const {user} = this.props;
     if (user === null) {
@@ -24,8 +29,30 @@ class Header extends Component {
     }
   };
 
+  showSurveyErrorBanner(error) {
+    const {showSurveyError} = this.state;
+    if(showSurveyError){
+      setTimeout(() => {
+        this.setState({showSurveyError: false})
+      }, 5000)
+      return <h5 className="red-text">{`Survey was not send, something went wrong, sorry ${error && error}`}</h5>
+    }
+  }
+
+  showSurveySuccessBanner() {
+    const {showSurveySuccess} = this.state;
+    if(showSurveySuccess){
+      setTimeout(() => {
+        this.setState({showSurveySuccess: false})
+      }, 5000)
+      return <h5 className="green-text">Survey was send successfully!</h5>
+    }
+  }
+
   render() {
-    const {user} = this.props;
+    const {user, surveySent} = this.props;
+    console.log('GOT SURVEY SENT ACTION')
+    console.log(surveySent)
 
     return (
       <nav>
@@ -37,6 +64,10 @@ class Header extends Component {
             {this.showHeaderContent()}
           </ul>
         </div>
+        {surveySent === false || surveySent.error && this.setState({showSurveyError: true})}
+        {this.showSurveyErrorBanner(surveySent && surveySent.error)}
+        {surveySent === true && this.setState({showSurveySuccess: true})}
+        {this.showSurveySuccessBanner()}
       </nav>
     );
   }
@@ -44,7 +75,8 @@ class Header extends Component {
 
 const mapStateToProps = store => {
   return {
-    user: store.auth.user
+    user: store.auth.user,
+    surveySent: store.surveySent
   };
 };
 

@@ -6,7 +6,7 @@ import Dashboard from "./Dashboard";
 import Surveys from "./surveys/Surveys";
 import NewSurvey from "./surveys/NewSurvey";
 import 'materialize-css/dist/css/materialize.min.css';
-import {fetchCurrentUserActionCreator} from '../actions/authActions';
+import {fetchCurrentUserActionCreator} from '../actions/auth.actions';
 import {connect} from 'react-redux';
 
 class App extends Component {

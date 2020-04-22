@@ -8,7 +8,11 @@ const {templates, Mailer} = require('../helpers/emails');
 const Survey = mongoose.model('survey');
 
 router.post('/', [isLoggedIn, hasCredits], async (req, res) => {
-  const {title, subject, body, recipients} = req.body;
+  let {title, subject, body, recipients} = req.body;
+  console.log('GOT RECIPIENTS')
+  console.log(recipients)
+
+  recipients = recipients.split(',').map(email => ({email: email.trim()}))
 
   const survey = new Survey({
     title,

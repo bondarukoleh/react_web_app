@@ -1,4 +1,4 @@
-import {BillingActions} from '../actions/paymentActions';
+import {BillingActions} from '../actions/payment.actions';
 
 const initialState = {
   billing: null

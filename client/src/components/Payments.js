@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 import StripeCheckout from "react-stripe-checkout";
-import {sendUserPaymentToken} from '../actions/paymentActions';
+import {sendUserPaymentToken} from '../actions/payment.actions';
 
 const {REACT_APP_STRIPE_PUB_KEY} = process.env;
 
