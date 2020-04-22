@@ -8,7 +8,7 @@ class NewSurvey extends Component {
   render() {
     const {showFormReview} = this.state;
     if (showFormReview) {
-      return <SurveyFromReview/>;
+      return <SurveyFromReview onCancel={() => this.setState({showFormReview: false})}/>;
     }
     return <SurveyForm onSurveySubmit={() => this.setState({showFormReview: true})}/>;
   }

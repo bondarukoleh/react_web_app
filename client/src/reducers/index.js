@@ -4,7 +4,7 @@ import {paymentReducer} from './payment.reducer';
 import {reducer as surveyReducer} from "redux-form";
 
 export const rootReducer = combineReducers({
-  form: surveyReducer, // name should be "form", my god
+  form: surveyReducer, // name should be "form", all forms of redux-form - will be connected to this property
   auth: authReducer,
   payment: paymentReducer
 });
