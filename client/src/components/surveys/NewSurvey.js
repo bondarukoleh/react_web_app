@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {reduxForm} from 'redux-form';
 import SurveyForm from "./SurveyForm";
 import SurveyFromReview from "./SurveyFromReview";
 
@@ -14,4 +15,5 @@ class NewSurvey extends Component {
   }
 }
 
-export default NewSurvey;
+export default reduxForm({form: 'survey'})(NewSurvey); // trick that gives ability to destroy (default behaviour of
+// reduxForm) the form values when we left the scope of "New Survey" component.

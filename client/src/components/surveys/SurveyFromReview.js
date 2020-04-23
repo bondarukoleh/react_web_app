@@ -1,11 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { Redirect } from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import {FIELD_PROPS} from './survey.data';
 import {senSurveyActionCreator} from "../../actions/survey.actions";
 
 /* Unlike class component, props here passed as an argument, so no this.props is available */
-const SurveyFormReview = ({onCancel, survey, sendSurvey}) => {
+const SurveyFormReview = ({onCancel, survey, sendSurvey, history}) => {
   const renderFields = () => {
     return (<div>
       {FIELD_PROPS.map(({label, name}) => {
@@ -20,7 +20,7 @@ const SurveyFormReview = ({onCancel, survey, sendSurvey}) => {
   const sendSurveyData = async () => {
     try {
       await sendSurvey(survey.values)
-      return <Redirect to='surveys' />
+      history.push('/surveys')
     } catch (e) {}
   };
 
@@ -55,4 +55,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SurveyFormReview);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SurveyFormReview));

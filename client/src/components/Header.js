@@ -2,13 +2,13 @@ import React, {Component} from "react";
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import Payments from './Payments';
-import logo from '../media/emaily_logo.png'
+import logo from '../media/emaily_logo.png';
 
 class Header extends Component {
   state = {
     showSurveyError: false,
     showSurveySuccess: false,
-  }
+  };
 
   showHeaderContent = () => {
     const {user} = this.props;
@@ -29,45 +29,38 @@ class Header extends Component {
     }
   };
 
-  showSurveyErrorBanner(error) {
-    const {showSurveyError} = this.state;
-    if(showSurveyError){
+  componentDidMount() {
+    const {showSurveyError, showSurveySuccess, error} = this.state;
+    if (showSurveyError) {
       setTimeout(() => {
-        this.setState({showSurveyError: false})
-      }, 5000)
-      return <h5 className="red-text">{`Survey was not send, something went wrong, sorry ${error && error}`}</h5>
+        this.setState({showSurveyError: false});
+      }, 5000);
+      return <h5 className="red-text">{`Survey was not send, something went wrong, sorry ${error && error}`}</h5>;
     }
-  }
-
-  showSurveySuccessBanner() {
-    const {showSurveySuccess} = this.state;
-    if(showSurveySuccess){
+    if (showSurveySuccess) {
       setTimeout(() => {
-        this.setState({showSurveySuccess: false})
-      }, 5000)
-      return <h5 className="green-text">Survey was send successfully!</h5>
+        console.log('RESETING STATE');
+        this.setState({showSurveySuccess: false});
+      }, 5000);
+      return <h5 className="green-text">Survey was send successfully!</h5>;
     }
   }
 
   render() {
-    const {user, surveySent} = this.props;
-    console.log('GOT SURVEY SENT ACTION')
-    console.log(surveySent)
-
+    const {user} = this.props;
     return (
       <nav>
         <div className="nav-wrapper">
           {/*TODO: polish layout of logo*/}
-          <Link className="brand-logo left" to={user ? '/surveys' : '/'}><img src={logo} alt="Logo" style={{width: '50px',
-            height: '50px'}}></img></Link>
+          <Link className="brand-logo left" to={user ? '/surveys' : '/'}>
+            <img src={logo} alt="Logo" style={{width: '50px', height: '50px'}}></img>
+          </Link>
           <ul className="right hide-on-med-and-down" id="nav-mobile ">
             {this.showHeaderContent()}
           </ul>
         </div>
-        {surveySent === false || surveySent.error && this.setState({showSurveyError: true})}
-        {this.showSurveyErrorBanner(surveySent && surveySent.error)}
-        {surveySent === true && this.setState({showSurveySuccess: true})}
-        {this.showSurveySuccessBanner()}
+        {/*{surveySend === false && this.setState({showSurveyError: true, error: surveySend.error})}*/}
+        {/*{surveySend === true && this.setState({showSurveySuccess: true})}*/}
       </nav>
     );
   }
@@ -76,7 +69,7 @@ class Header extends Component {
 const mapStateToProps = store => {
   return {
     user: store.auth.user,
-    surveySent: store.surveySent
+    // surveySend: store.survey.surveySend
   };
 };
 

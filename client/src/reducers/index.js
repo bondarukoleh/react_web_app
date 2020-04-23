@@ -8,5 +8,5 @@ export const rootReducer = combineReducers({
   form: surveyFormReducer, // name should be "form", all forms of redux-form - will be connected to this property
   auth: authReducer,
   payment: paymentReducer,
-  surveySent: surveyReducer,
+  survey: surveyReducer,
 });

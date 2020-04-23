@@ -21,7 +21,7 @@ pluginRoutes(app);
 // serve frontend on production
 serveProdBuild(app);
 
-function getServer(port = process.env.PORT || 5000) {
+function getServer(port = process.env.PORT || 8080) {
   return app.listen(port, () => console.log(`App is listening on port ${port}.`));
 }
 

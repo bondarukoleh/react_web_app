@@ -159,3 +159,6 @@ fetch('/api/surveys', {method: "POST", body: JSON.stringify({title: '', subject:
 
 Redux Form - helping to add complicated logic form to app, it has it's own reducer, so we don't need to add a lot of
 logic in redux store.
+
+Localtunnel - package that gives your local PC to be reachable from outside network. But it doesn't work)
+ngrok - nice, but they wanted money for static proxy url + you need to install stuff, so I've picked up ssh.localhost.run
