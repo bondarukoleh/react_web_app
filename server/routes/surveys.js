@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const {URL} = require('url');
 const paths = require('./routes.paths');
 const {isLoggedIn, hasCredits} = require('../middleware/authorization');
 const {templates, Mailer} = require('../helpers/emails');
@@ -9,10 +10,8 @@ const Survey = mongoose.model('survey');
 
 router.post('/', [isLoggedIn, hasCredits], async (req, res) => {
   let {title, subject, body, recipients} = req.body;
-  console.log('GOT RECIPIENTS')
-  console.log(recipients)
 
-  recipients = recipients.split(',').map(email => ({email: email.trim()}))
+  recipients = recipients.split(',').map(email => ({email: email.trim()}));
 
   const survey = new Survey({
     title,
@@ -32,7 +31,7 @@ router.post('/', [isLoggedIn, hasCredits], async (req, res) => {
     fromEmail: 'bondarukqaqa@gmail.com',
     subject,
     recipients: recipients.map(({email}) => email),
-    content: templates.surveyTemplate(body)
+    content: templates.surveyTemplate(survey)
   };
 
   const mailer = new Mailer(mailerConfig);
@@ -57,30 +56,39 @@ router.post('/', [isLoggedIn, hasCredits], async (req, res) => {
 });
 
 // this url is added as webhook to sendgrid mail settings
-router.post('/webhook', (req, res) => {
-  // const [ {
-  //   email: 'example@test.com',
-  //   timestamp: 1587679100,
-  //   'smtp-id': '<14c5d75ce93.dfd.64b469@ismtpd-555>',
-  //   event: 'click',
-  //   category: 'cat facts',
-  //   sg_event_id: 'iNPlSK-HuAKwn4GYYlv7qQ==',
-  //   sg_message_id: '14c5d75ce93.dfd.64b469.filter0001.16648.5515E0B88.0',
-  //   useragent: 'Mozilla/4.0 (compatible; MSIE 6.1; Windows XP; .NET CLR 1.1.4322; .NET CLR 2.0.50727)',
-  //   ip: '255.255.255.255',
-  //   url: 'http://www.sendgrid.com/'
-  // }] = req.body;
-  console.log(req.body)
-  res.send({'HI': "YUYUYU"})
+router.post('/webhook', async (req, res) => {
+  const clickEvents = req.body.map(({url, email}) => {
+    const urlObject = new URL(url);
+    // TODO: rewrite this shame
+    const parsedPath = urlObject.pathname.split('/');
+    const surveyID = parsedPath[3];
+    const answer = parsedPath[4];
+    return {email, surveyID, answer}
+  });
+
+  clickEvents.map(({email, surveyID, answer}) => {
+      Survey.updateOne(
+        {
+          _id: surveyID,
+          recipients: {
+            $elemMatch: { email: email, responded: false }
+          }
+        },
+        {
+          $inc: { [answer]: 1 },
+          $set: { 'recipients.$.responded': true },
+          lastResponded: new Date()
+        }
+      ).exec().catch(console.log);
+  })
+  res.send({message: 'Thanks, got the hook data.'})
 });
 
 // TODO: move to the client side
-router.get('/thanks', (req, res) => {
-  res.send(`Thank you for the participating! We glad you like it!`);
-});
-
-router.get('/sorry', (req, res) => {
-  res.send(`Thank you for the participating! We'll try to make it better!`);
+router.get('/:surveyID/:answer', (req, res) => {
+  res.send(`Thank you for the participating! ${req.params.answer === 'yes'
+    ? 'We glad you like it!'
+    : `We'll try to make it better!`}`);
 });
 
 module.exports = {handler: router, path: paths.surveys};
