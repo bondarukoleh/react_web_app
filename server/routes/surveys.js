@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const {URL} = require('url');
+const {Path} = require('path-parser');
 const paths = require('./routes.paths');
 const {isLoggedIn, hasCredits} = require('../middleware/authorization');
 const {templates, Mailer} = require('../helpers/emails');
@@ -57,31 +58,42 @@ router.post('/', [isLoggedIn, hasCredits], async (req, res) => {
 
 // this url is added as webhook to sendgrid mail settings
 router.post('/webhook', async (req, res) => {
-  const clickEvents = req.body.map(({url, email}) => {
-    const urlObject = new URL(url);
-    // TODO: rewrite this shame
-    const parsedPath = urlObject.pathname.split('/');
-    const surveyID = parsedPath[3];
-    const answer = parsedPath[4];
-    return {email, surveyID, answer}
-  });
-
-  clickEvents.map(({email, surveyID, answer}) => {
+  // TODO: rewrite this shame & debug
+  let clickEvents = [];
+  if (req.body.length) {
+    clickEvents = req.body.filter(({event}) => event === 'click');
+  }
+  if (clickEvents.length) {
+    clickEvents = clickEvents.map(({url, email}) => {
+      const pathObj = new Path('/api/surveys/:surveyID/:answer');
+      const urlObject = new URL(url);
+      const parsedPath = pathObj.test(urlObject.pathname);
+      if (parsedPath) {
+        return {email, surveyID: parsedPath.surveyID, answer: parsedPath.answer};
+      }
+    });
+  }
+  clickEvents = clickEvents.filter(v => v && v); // filter undefined
+  if (clickEvents.length) {
+    clickEvents.map(({email, surveyID, answer}) => {
       Survey.updateOne(
         {
           _id: surveyID,
           recipients: {
-            $elemMatch: { email: email, responded: false }
+            $elemMatch: {email: email, responded: false}
           }
         },
         {
-          $inc: { [answer]: 1 },
-          $set: { 'recipients.$.responded': true },
+          $inc: {[answer]: 1},
+          $set: {'recipients.$.responded': true},
           lastResponded: new Date()
         }
       ).exec().catch(console.log);
-  })
-  res.send({message: 'Thanks, got the hook data.'})
+    });
+    return res.send({message: 'Thanks, got the hook data.'});
+  }
+  console.log('we got some unneeded data');
+  res.send({message: 'no needed hook data received'});
 });
 
 // TODO: move to the client side
