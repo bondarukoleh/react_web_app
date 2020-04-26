@@ -4,6 +4,8 @@ import {Link} from "react-router-dom";
 
 class Landing extends Component {
   render() {
+    const {user} = this.props;
+
     const divStyle = {
       textAlign: 'center'
     };
@@ -12,7 +14,9 @@ class Landing extends Component {
       <h2>Emaily!</h2>
       <p>Collect feedback about your application easily!</p>
       <div>
-        <Link to='/surveys'>Got to your surveys.</Link>
+        {user
+          ? <Link to='/surveys'>Got to your surveys.</Link>
+          : <p>Please <strong>login</strong> and <strong>add a credit</strong> to make a new survey!</p>}
       </div>
     </div>;
   }

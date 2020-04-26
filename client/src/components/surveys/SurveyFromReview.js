@@ -19,9 +19,10 @@ const SurveyFormReview = ({onCancel, survey, sendSurvey, history}) => {
 
   const sendSurveyData = async () => {
     try {
-      await sendSurvey(survey.values)
-      history.push('/surveys')
-    } catch (e) {}
+      await sendSurvey(survey.values);
+      history.push('/surveys');
+    } catch (e) {
+    }
   };
 
   const showWarning = () => {

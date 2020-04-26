@@ -101,7 +101,7 @@ router.get('/:surveyID/:answer', (req, res) => {
 });
 
 router.get('/', isLoggedIn, async (req, res) => {
-  let surveys = []
+  let surveys = [];
   try {
     surveys = await Survey.find({_user: req.user.id}).select({recipients: false});
     surveys = surveys.map(survey => ({

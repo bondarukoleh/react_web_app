@@ -59,8 +59,6 @@ class Header extends Component {
             {this.showHeaderContent()}
           </ul>
         </div>
-        {/*{surveySend === false && this.setState({showSurveyError: true, error: surveySend.error})}*/}
-        {/*{surveySend === true && this.setState({showSurveySuccess: true})}*/}
       </nav>
     );
   }
@@ -69,7 +67,6 @@ class Header extends Component {
 const mapStateToProps = store => {
   return {
     user: store.auth.user,
-    // surveySend: store.survey.surveySend
   };
 };
 

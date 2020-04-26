@@ -10,7 +10,6 @@ class Survey extends Component {
           <p>Subject: {subject}</p>
           <p>{body}</p>
           <p className="right">Send date: {new Date(dateSent).toLocaleString()}</p>
-          <p className="left">Last responded: {new Date(lastResponded).toLocaleString()}</p>
         </div>
         <div className="card-action">
           <a>Yes voted count: {yes}</a>
