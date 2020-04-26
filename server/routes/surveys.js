@@ -19,7 +19,7 @@ const extractSurveyIdAndAnswer = ({url, email}) => {
 const updateDBSurvey = ({email, surveyID, answer}) => {
   // instead of finding survey by id, find a recipient by email, change him, then change it, and return whole
   // list or surveys back - we will sent only one query, that will cover all the actions
-  Survey.updateOne({_id: surveyID, recipients: {$elemMatch: {email: email, responded: false}}},
+  Survey.updateOne({_id: surveyID, recipients: {$elemMatch: {email: email.toLowerCase(), responded: false}}},
     {$inc: {[answer]: 1}, $set: {'recipients.$.responded': true}, lastResponded: Date.now()}
   ).exec()
     .catch(console.log);
