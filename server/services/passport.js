@@ -42,8 +42,6 @@ function useGoogleAuth(passportLib) {
           return done(e);
         }
       }
-      console.log('We found corresponding User');
-      console.log(user);
       return done(null, user); // at this point serializeUser function called with found user
     }
   ));

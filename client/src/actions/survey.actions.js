@@ -7,6 +7,8 @@ export const SurveyActions = {
   surveySendSuccess: 'SURVEY_SEND_SUCCESS',
   fetchSurveysSuccess: 'FETCH_SURVEY_SUCCESS',
   fetchSurveysFail: 'FETCH_SURVEY_FAIL',
+  deleteSurveySuccess: 'DELETE_SURVEY_SUCCESS',
+  deleteSurveyFail: 'DELETE_SURVEY_FAIL',
 };
 
 export const sendSurveyActionCreator = (survey) => async (dispatch) => {
@@ -35,7 +37,7 @@ export const sendSurveyActionCreator = (survey) => async (dispatch) => {
   }
 };
 
-export const fetchSurveyActionCreator = () => async (dispatch) => {
+export const fetchSurveysActionCreator = () => async (dispatch) => {
   try {
     const {data} = await axios.get('/api/surveys');
     if (data && data.error) {
@@ -53,6 +55,24 @@ export const fetchSurveyActionCreator = () => async (dispatch) => {
     return dispatch({
       type: SurveyActions.fetchSurveysFail,
       payload: false
+    });
+  }
+};
+
+export const deleteSurveyActionCreator = (surveyID) => async (dispatch) => {
+  let response = false;
+  try {
+    const {data} = await axios.delete(`/api/surveys/${surveyID}`);
+    response = data;
+    dispatch({
+      type: SurveyActions.deleteSurveySuccess,
+      payload: data
+    });
+  } catch (e) {
+    console.log(`Couldn't delete the survey \n`, e);
+    return dispatch({
+      type: SurveyActions.deleteSurveyFail,
+      payload: response.error || false
     });
   }
 };

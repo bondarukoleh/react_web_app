@@ -120,4 +120,10 @@ router.get('/', isLoggedIn, async (req, res) => {
   res.send(surveys);
 });
 
+router.delete('/:id', isLoggedIn, async (req, res) => {
+  const survey = await Survey.findByIdAndRemove({_id: req.params.id});
+  if(!survey) return res.status(404).send({error: `Survey with id: "${req.params.id}" is not found.`});
+  return res.send({id: survey._id});
+});
+
 module.exports = {handler: router, path: paths.surveys};

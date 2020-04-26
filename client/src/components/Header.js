@@ -19,7 +19,7 @@ class Header extends Component {
     } else {
       return <React.Fragment>
         <li id="welcome">{`Welcome ${user.name}!`}</li>
-        <li id="credits" style={{margin: '0 10px'}}>{`Your credits: ${user.credit}`}</li>
+        <li id="credits" style={{margin: '0 10px'}}>{user.credit ? `Your credits: ${user.credit}` : 'No credits, you CANNOT create surveys!'}</li>
         <li id="add_credits"><Payments/></li>
         <li id="logout"><a href="/api/logout">Logout</a></li>
         {/*We will sent full request to backend with browser refresh,
@@ -39,7 +39,6 @@ class Header extends Component {
     }
     if (showSurveySuccess) {
       setTimeout(() => {
-        console.log('RESETING STATE');
         this.setState({showSurveySuccess: false});
       }, 5000);
       return <h5 className="green-text">Survey was send successfully!</h5>;

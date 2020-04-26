@@ -1,6 +1,6 @@
 const mongooseClient = require('mongoose');
 const {DB_USER: user, DB_PASS: password, DB_NAME: name, DB_HOST: host} = require('../config');
-const defaultOption = {retryWrites: true, w: 'majority', useNewUrlParser: true, useUnifiedTopology: true};
+const defaultOption = {retryWrites: true, w: 'majority', useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false};
 
 const getDbUrl = () => `mongodb+srv://${user}:${password}@${host}`;
 

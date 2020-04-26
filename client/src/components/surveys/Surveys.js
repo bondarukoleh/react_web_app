@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Survey from "./Survey";
-import {fetchSurveyActionCreator} from "../../actions/survey.actions";
+import {fetchSurveysActionCreator, deleteSurveyActionCreator} from "../../actions/survey.actions";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 
@@ -10,13 +10,20 @@ class Surveys extends Component {
   }
 
   renderSurveys = () => {
-    const {surveys} = this.props;
+    const {surveys, deletedSurvey, deleteSurvey} = this.props;
     if (surveys === null) {
       return <div>Fetching your surveys...</div>;
     } else if (surveys === false || !surveys.length) {
       return <div>You have no surveys yet. <Link to='/surveys/new'>Create</Link> your first one!</div>;
     } else {
-      return this.props.surveys.reverse().map((survey) => <Survey survey={survey} key={survey.id}/>);
+      return this.props.surveys.reverse().map((survey) =>{
+        return <Survey
+          survey={survey}
+          deletedSurvey={deletedSurvey}
+          deleteSurvey={deleteSurvey}
+          key={survey.id}
+        />
+      });
     }
   };
 
@@ -29,13 +36,15 @@ class Surveys extends Component {
 
 const mapStateToProps = store => {
   return {
-    surveys: store.survey.fetchSurveys
+    surveys: store.survey.fetchSurveys,
+    deletedSurvey: store.survey.deleteSurvey
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchSurveys: () => dispatch(fetchSurveyActionCreator())
+    fetchSurveys: () => dispatch(fetchSurveysActionCreator()),
+    deleteSurvey: (surveyID) => dispatch(deleteSurveyActionCreator(surveyID))
   };
 };
 
