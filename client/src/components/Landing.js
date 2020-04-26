@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
+import {Link} from "react-router-dom";
 
 class Landing extends Component {
   render() {
@@ -9,7 +10,10 @@ class Landing extends Component {
 
     return <div style={divStyle}>
       <h2>Emaily!</h2>
-      Collect feedback about your application easily!
+      <p>Collect feedback about your application easily!</p>
+      <div>
+        <Link to='/surveys'>Got to your surveys.</Link>
+      </div>
     </div>;
   }
 }

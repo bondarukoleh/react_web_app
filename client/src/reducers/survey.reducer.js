@@ -1,7 +1,8 @@
 import {SurveyActions} from '../actions/survey.actions';
 
 const initialState = {
-  surveySend: null
+  surveySend: null,
+  fetchSurveys: null
 };
 
 export function surveyReducer(state = initialState, action) {
@@ -10,6 +11,10 @@ export function surveyReducer(state = initialState, action) {
       return {...state, surveySend: action.payload};
     case SurveyActions.surveySendSuccess:
       return {...state, surveySend: action.payload};
+    case SurveyActions.fetchSurveysSuccess:
+      return {...state, fetchSurveys: action.payload};
+    case SurveyActions.fetchSurveysFail:
+      return {...state, fetchSurveys: action.payload};
     default:
       return state;
   }

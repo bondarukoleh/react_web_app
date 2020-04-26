@@ -8,6 +8,22 @@ const {isLoggedIn, hasCredits} = require('../middleware/authorization');
 const {templates, Mailer} = require('../helpers/emails');
 
 const Survey = mongoose.model('survey');
+const isClickEvent = (eventObj) => eventObj.event === 'click' && eventObj.url;
+const extractSurveyIdAndAnswer = ({url, email}) => {
+  const urlObject = new URL(url);
+  const parsedPath = new Path('/api/surveys/:surveyID/:answer').test(urlObject.pathname);
+  if (parsedPath) {
+    return {email, surveyID: parsedPath.surveyID, answer: parsedPath.answer};
+  }
+};
+const updateDBSurvey = ({email, surveyID, answer}) => {
+  // instead of finding survey by id, find a recipient by email, change him, then change it, and return whole
+  // list or surveys back - we will sent only one query, that will cover all the actions
+  Survey.updateOne({_id: surveyID, recipients: {$elemMatch: {email: email, responded: false}}},
+    {$inc: {[answer]: 1}, $set: {'recipients.$.responded': true}, lastResponded: Date.now()}
+  ).exec()
+    .catch(console.log);
+};
 
 router.post('/', [isLoggedIn, hasCredits], async (req, res) => {
   let {title, subject, body, recipients} = req.body;
@@ -58,38 +74,19 @@ router.post('/', [isLoggedIn, hasCredits], async (req, res) => {
 
 // this url is added as webhook to sendgrid mail settings
 router.post('/webhook', async (req, res) => {
-  // TODO: rewrite this shame & debug
   let clickEvents = [];
   if (req.body.length) {
-    clickEvents = req.body.filter(({event}) => event === 'click');
+    clickEvents = req.body.filter(isClickEvent);
   }
   if (clickEvents.length) {
-    clickEvents = clickEvents.map(({url, email}) => {
-      const pathObj = new Path('/api/surveys/:surveyID/:answer');
-      const urlObject = new URL(url);
-      const parsedPath = pathObj.test(urlObject.pathname);
-      if (parsedPath) {
-        return {email, surveyID: parsedPath.surveyID, answer: parsedPath.answer};
-      }
-    });
+    clickEvents = clickEvents.map(extractSurveyIdAndAnswer).filter(v => v && v); // filter undefined
   }
-  clickEvents = clickEvents.filter(v => v && v); // filter undefined
   if (clickEvents.length) {
-    clickEvents.map(({email, surveyID, answer}) => {
-      Survey.updateOne(
-        {
-          _id: surveyID,
-          recipients: {
-            $elemMatch: {email: email, responded: false}
-          }
-        },
-        {
-          $inc: {[answer]: 1},
-          $set: {'recipients.$.responded': true},
-          lastResponded: new Date()
-        }
-      ).exec().catch(console.log);
-    });
+    try {
+      clickEvents.map(updateDBSurvey);
+    } catch (e) {
+      return res.status(500).send({message: e});
+    }
     return res.send({message: 'Thanks, got the hook data.'});
   }
   console.log('we got some unneeded data');
@@ -101,6 +98,26 @@ router.get('/:surveyID/:answer', (req, res) => {
   res.send(`Thank you for the participating! ${req.params.answer === 'yes'
     ? 'We glad you like it!'
     : `We'll try to make it better!`}`);
+});
+
+router.get('/', isLoggedIn, async (req, res) => {
+  let surveys = []
+  try {
+    surveys = await Survey.find({_user: req.user.id}).select({recipients: false});
+    surveys = surveys.map(survey => ({
+      body: survey.body,
+      dateSent: survey.dateSent,
+      lastResponded: survey.lastResponded,
+      no: survey.no,
+      subject: survey.subject,
+      title: survey.title,
+      yes: survey.yes,
+      id: survey._id
+    }));
+  } catch (e) {
+    res.status(500).send({error: `Couldn't get the surveys`});
+  }
+  res.send(surveys);
 });
 
 module.exports = {handler: router, path: paths.surveys};

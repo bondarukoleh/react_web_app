@@ -3,7 +3,6 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Header from './Header';
 import Landing from './Landing';
 import Dashboard from "./Dashboard";
-import Surveys from "./surveys/Surveys";
 import NewSurvey from "./surveys/NewSurvey";
 import 'materialize-css/dist/css/materialize.min.css';
 import {fetchCurrentUserActionCreator} from '../actions/auth.actions';
@@ -26,7 +25,6 @@ class App extends Component {
             </Route>
             <Route exact path="/surveys">
               <Dashboard/>
-              <Surveys/>
             </Route>
             <Route exact path="/surveys/new">
               <NewSurvey/>

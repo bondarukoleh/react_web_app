@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from "react-router-dom";
 import {FIELD_PROPS} from './survey.data';
-import {senSurveyActionCreator} from "../../actions/survey.actions";
+import {sendSurveyActionCreator} from "../../actions/survey.actions";
 
 /* Unlike class component, props here passed as an argument, so no this.props is available */
 const SurveyFormReview = ({onCancel, survey, sendSurvey, history}) => {
@@ -51,7 +51,7 @@ const mapStateToProps = store => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    sendSurvey: (survey) => dispatch(senSurveyActionCreator(survey))
+    sendSurvey: (survey) => dispatch(sendSurveyActionCreator(survey))
   };
 };
 
