@@ -1,8 +1,17 @@
 import React, {Component} from "react";
 
 class Survey extends Component {
+  deleteSurvey = async () => {
+    const {survey: {id}, deleteSurvey} = this.props;
+    await deleteSurvey(id);
+  };
+
+  showWarning = () => {
+    window.confirm("Are you sure you want to delete the survey?") && this.deleteSurvey();
+  };
+
   render() {
-    const {survey: {body, dateSent, id, no, subject, title, yes}, deleteSurvey} = this.props;
+    const {survey: {body, dateSent, no, subject, title, yes}} = this.props;
     return (
       <div className="card blue-grey darken-1">
         <div className="card-content white-text">
@@ -14,7 +23,7 @@ class Survey extends Component {
         <div className="card-action">
           <a href='/#'>Yes voted count: {yes}</a>
           <a href='/#'>No voted count: {no}</a>
-          <a href='/surveys' onClick={() => deleteSurvey(id)} className="right yellow-text">Delete survey</a>
+          <a href='/surveys' onClick={this.showWarning} className="right yellow-text">Delete survey</a>
         </div>
       </div>
     );

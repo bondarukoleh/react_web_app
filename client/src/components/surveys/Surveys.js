@@ -43,7 +43,7 @@ class Surveys extends Component {
             deleteSurvey={deleteSurvey}
             key={survey.id}
           />;
-        })};
+        })}
       </div>;
     }
   };
