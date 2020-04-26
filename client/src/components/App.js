@@ -15,7 +15,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container" style={{backgroundColor: "#ebf8ff"}}>
         <Router>
           <Header/>
           <Switch>
