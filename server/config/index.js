@@ -6,7 +6,16 @@ function checkEnvVars(config) {
   }
 }
 
-const config = onProd() ? require('./production') : require('./dev');
-checkEnvVars(config);
+const getConfig = () => {
+  try {
+    return onProd() ? require('./production') : require('./dev');
+  } catch (e) {
+    if(e.message.includes('Cannot find module')){
+      throw Error(`Please create dev.js file, for DEV mode server config;`)
+    }
+    throw e;
+  }
+}
+checkEnvVars(getConfig());
 
-module.exports = config;
+module.exports = getConfig();
