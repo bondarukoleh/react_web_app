@@ -1,4 +1,4 @@
-Every app starts from idea, and from planing what app should do and how it should be used.
+Every app starts from idea, and from planning what app should do and how it should be used.
 We need to white a few diagrams, and pictures what the main flows.
 
 For app that collects feedback for apps - the main flow should be something like this.
