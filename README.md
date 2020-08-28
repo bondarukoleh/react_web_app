@@ -4,7 +4,7 @@ This application helps you to create email surveys for your employees, friends, 
 opinion from.
 
 You can easily create a survey, add recipients list, and send them emails with simple quise.
-Check out the [app][1].
+**Check out the [application][1]**:email:.
 
 ---
 ### For devs
