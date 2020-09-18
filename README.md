@@ -1,7 +1,18 @@
-# React Web App
-Learning react.
+# Email surveys application. :mailbox:
 
-## Server
-To start the server in dev mode you need to check server/config/dev.dist file.
+This application helps you to create email surveys for your employees, friends, or any kind of people you want to know
+opinion from.
 
-[Link to app.](https://olehbondaruk-emaily-server.herokuapp.com/)
+You can easily create a survey, add recipients list, and send them emails with simple quise.
+**Check out the [application][1]**:email:.
+
+---
+### For devs
+To start the server in dev mode you need to check `server/config/dev.dist` [file][2].
+
+### About app
+You can find some tech information about the application [here][3].
+
+[1]: https://olehbondaruk-emaily-server.herokuapp.com/
+[2]: server/config/dev.dist
+[3]: info/different.stuff.md
