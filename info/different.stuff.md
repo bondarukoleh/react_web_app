@@ -124,11 +124,18 @@ other component will use it - then create action creator, action, reducer, and a
 React-router is a basic library with routing, React-router-dom for all apps that somehow working with dom,
 React-router-native is for the react-native apps.
 
+```jsx
 import {
-  BrowserRouter, - tells how to behave, looks for current url - and decide what page it should draw.
-  Route - rule that decide between certain route that user can visit, and components that will be visible on the screen
-  Switch - looks through its children <Route>s and renders the first one that matches the current URL.
+  BrowserRouter, // tells how to behave, looks for current url - and decide what page it should draw.
+  Route, // rule that decide between certain route that user can visit, and components that will be visible on the screen
+  Switch, // looks through its children <Route>s and renders the first one that matches the current URL.
 } from "react-router-dom";
+
+// exact - means only for this path it will be visible. If not - it will be visible everywhere.
+<Route exact path={'/myPath'} render={() => <MyComponent />}/> // one way
+<Route exact path={'/myPath'}><MyComponent/></Route> // another way
+<Route exact path={'/myPath'} component={MyComponent}/> // one more way
+```
 
 https://materializecss.com/ - library to get predefined css styles for elements.
 There is one more popular library for React - MaterialUI, but this library is javascript based styles, this means that
@@ -140,9 +147,14 @@ them also.
 
 a vs Link (from React Router)
 We use anchor, when we want User to be redirected to completely different html document, in different domain, like login
-via google.
+via google. \
 We use Link (React Router) when we wont to navigate User to some other route hosted by React Router inside our
-application.
+application. There nice features of [Link](https://reactrouter.com/web/api/Link). 
+```jsx
+<Link to="/news">News</Link>
+<Link to={{pathname: "/news", search: "?sort=name", hash: "#the-hash",}}>News</Link>
+```
+
 
 About payment.
 Don't store raw credit card numbers, or store them in your DB, or process payment on your side. Always use outside
