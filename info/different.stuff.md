@@ -147,6 +147,22 @@ import {
 <Route exact path={'/myPath'}><MyComponent/></Route> // another way
 <Route exact path={'/myPath'} component={MyComponent}/> // one more way
 ```
+Route adds special methods and properties to Component it wraps. But be aware if you mess with properties somehow, you 
+cannot get the *history, location, match, etc.* from props that Route provide, since you re write it.
+```jsx
+<Route exact path={'/myPath'} render={() => <MyComponent/>}/> // You cannot get them 
+<Route exact path={'/myPath'}><MyComponent/></Route> // You cannot get them
+<Route exact path={'/myPath'} component={MyComponent}/> // This way you CAN get them.
+<Route exact path={'/myPath'} component={(props) => <MyComponent {...props}/>}/> // This way you CAN get them.
+<Route exact path={'/myPath'} render={(props) => <MyComponent {...props}/>}/> // This way you CAN get them.
+```
+Any children don't get those props of course, you need to pass them with hands. Or there is a better way `withRouter`.
+```jsx
+import {withRouter} from 'react-router-dom';
+class MyComponent(){};
+export default withRouter(MyComponent); // Now, ANY way you would wrap this Component - it alwas will have Route props.s
+```
+
 
 [Materializecss][3] - library to get predefined css styles for elements. \
 There is one more popular library for React - MaterialUI, but this library is javascript based styles, this means that
