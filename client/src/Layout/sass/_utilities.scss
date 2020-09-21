@@ -1,5 +1,35 @@
 @import './config';
+@import "functions";
 
 .main-bg {
     background-color: $main-color;
+}
+
+%btn-shared {
+    display: inline-block;
+    padding: .8rem 2rem;
+    transition: background-color .5s;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn {
+    &-main {
+        @extend %btn-shared;
+        background-color: $main-color;
+        color: set-contract-color($main-color);
+    }
+
+    &-red {
+        @extend %btn-shared;
+        background-color: $main-red-color;
+        color: set-contract-color($main-red-color);
+    }
+
+    &-dark {
+        @extend %btn-shared;
+        background-color: $dark-color;
+        color: set-contract-color($dark-color);
+    }
 }

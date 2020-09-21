@@ -9,37 +9,60 @@
   <meta name="keywords" content="email quiz, quiz, email">
   <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
-  integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
   <title>Quick quiz</title>
 </head>
 <body>
-  <header class="Header">
-    <nav class="navbar">
-      <section class="logo">
-        <img src="./assets/img.jpg" alt="Logo">
-      </section>
-      <section>
-        Hi User <i class="far fa-id-badge fa-3x"></i>, you have credits
-      </section>
-      <button>Logout</button>
-    </nav>
-  </header>
-  <main class="Content">
-    <section class="Greating">
-      <div>Create your quiz with fast response</div>
-      <img src="./assets/img.jpg" alt="Greeting picture">
-    </section>
-    <section class="Steps">
-      <div>For start you need do 4 easy steps:</div>
-      <div class="Step-left-aside">
-        <div class="circle-red"></div>
-        <i class="far fa-id-badge fa-3x"></i>
-        
-      </div>
-    </section>
-  </main>
-  <footer class="Footer">
-
-  </footer>
+<header class="Header">
+  <nav class="Navbar">
+    <div class="Logo">
+      <img src="./assets/logo.svg" alt="Logo">
+    </div>
+    <ul class="NavItems">
+      <li><span>Hi User, you have credits 0</span><img src="./assets/user_icon.svg" alt="user_icon"/></li>
+      <li><button class="btn-red">Login</button></li>
+    </ul>
+  </nav>
+</header>
+<main class="Content">
+  <section class="Greeting">
+    <div>Create your quiz with fast response</div>
+    <img src="./assets/img.jpg" alt="Greeting picture">
+  </section>
+  <section class="Steps">
+    <div>For start you need do 4 easy steps:</div>
+    <div class="Step-left-aside">
+      <div class="circle-red"></div>
+      <i class="far fa-id-badge fa-3x"></i>
+      <h3>Step 1</h3>
+      <hr>
+      <span>Login with Google account</span>
+    </div>
+    <div class="Step-right-aside">
+      <div class="circle-yellow"></div>
+      <i class="far fa-id-badge fa-3x"></i>
+      <h3>Step 2</h3>
+      <hr>
+      <span>Add credit</span>
+    </div>
+    <div class="Step-left-aside">
+      <div class="circle-yellow"></div>
+      <i class="far fa-id-badge fa-3x"></i>
+      <h3>Step 3</h3>
+      <hr>
+      <span>Create quiz</span>
+    </div>
+    <div class="Step-right-aside">
+      <div class="circle-yellow"></div>
+      <i class="far fa-id-badge fa-3x"></i>
+      <h3>Step 4</h3>
+      <hr>
+      <span>Collect the result</span>
+    </div>
+  </section>
+</main>
+<footer class="Footer">
+  <p>Copyright &copy; 2020. All Rights Reserved</p>
+</footer>
 </body>
 </html>
