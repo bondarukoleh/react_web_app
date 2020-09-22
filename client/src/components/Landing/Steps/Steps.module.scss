@@ -1,0 +1,32 @@
+@import '../../../sass/config';
+@import '../../../sass/utilities';
+
+.Steps {
+  .StepExplanation {
+    text-align: left;
+    @extend .p_3;
+    font-weight: normal;
+    font-size: 1.5rem;
+  }
+}
+
+@media(max-width: 1200px) {
+  .Steps {
+    .StepExplanation {
+      padding: 2rem 1rem;
+    }
+  }
+}
+
+/* Smartphones */
+@media(max-width: 500px) {
+  .Steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .StepExplanation {
+      font-size: 1rem;
+    }
+  }
+}

@@ -1,0 +1,101 @@
+@import './config';
+@import './functions';
+
+.main-bg {
+    background-color: $main-color;
+}
+
+%btn-shared {
+    display: inline-block;
+    padding: .8rem 2rem;
+    transition: background-color .5s;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn {
+    &-main {
+        @extend %btn-shared;
+        background-color: $main-color;
+        color: set-contract-color($main-color);
+    }
+
+    &-red {
+        @extend %btn-shared;
+        background-color: $main-red-color;
+        color: set-contract-color($main-red-color);
+    }
+
+    &-dark {
+        @extend %btn-shared;
+        background-color: $dark-color;
+        color: set-contract-color($dark-color);
+    }
+}
+
+.m {
+    &-1 {
+        margin: 1rem;
+    }
+
+    &-2 {
+        margin: 2rem;
+    }
+
+    &-3 {
+        margin: 3rem;
+    }
+}
+
+.p {
+    &-1 {
+        padding: 1rem;
+    }
+
+    &-2 {
+        padding: 2rem;
+    }
+
+    &-3 {
+        padding: 3rem;
+    }
+}
+
+%circle {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.circle-red {
+    @extend %circle;
+    @extend .m-1;
+    background-color: $red-color;
+}
+
+.circle-yellow {
+    @extend %circle;
+    @extend .m-1;
+    background-color: $yellow-color;
+}
+
+.circle-green {
+    @extend %circle;
+    @extend .m-1;
+    background-color: $green-color;
+}
+
+.circle-blue {
+    @extend %circle;
+    @extend .m-1;
+    background-color: $main-color;
+}
+
+.line {
+    height: .1rem;
+    width: 40rem;
+    background-color: $dark-color;
+    @extend .m-1;
+}

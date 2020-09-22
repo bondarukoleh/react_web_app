@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 import StripeCheckout from "react-stripe-checkout";
-import {sendUserPaymentToken} from '../actions/payment.actions';
+import {sendUserPaymentToken} from '../../actions/payment.actions';
+import styles from './Payment.module.scss'
 
 const {REACT_APP_STRIPE_PUB_KEY} = process.env;
 
@@ -18,10 +19,10 @@ class Payments extends Component {
         amount={500} // amount cents to pay
         token={this.stripePaymentCallback} // callback after authorization with card details in stripe vendor is done
         stripeKey={REACT_APP_STRIPE_PUB_KEY}
-        name="Emaily"
+        name="Quick Quiz"
         description="5$ for 5 email credits"
       >
-        <button className="btn">Add credits</button>
+        <button className={styles.btn_red}>Add credits</button>
       </StripeCheckout>
     );
   }

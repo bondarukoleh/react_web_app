@@ -1,0 +1,172 @@
+@import '../../../../sass/config';
+@import '../../../../sass/utilities';
+
+.StepLeftAside {
+  font-family: $secondary-font;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 7rem;
+  margin-bottom: 3rem;
+
+  .StepDesc {
+    text-align: left;
+    margin-left: 1rem;
+
+    div {
+      display: flex;
+      align-items: center;
+
+      h3 {
+        @extend .p_1;
+      }
+    }
+
+    span {
+      @extend .p_1;
+      font-size: larger;
+    }
+  }
+}
+
+.StepRightAside {
+  font-family: $secondary-font;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 7rem;
+  margin-bottom: 3rem;
+
+  .StepDesc {
+    text-align: right;
+    margin-right: 1rem;
+
+    div {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+    }
+
+    span {
+      font-family: $secondary-font;
+      font-size: larger;
+    }
+  }
+}
+
+.line {
+  height: .1rem;
+  width: 40rem;
+  background-color: $dark-color;
+  @extend .m-1;
+}
+
+%circle {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.circle_red {
+  @extend %circle;
+  @extend .m-1;
+  background-color: $red-color;
+}
+
+.circle_yellow {
+  @extend %circle;
+  @extend .m-1;
+  background-color: $yellow-color;
+}
+
+.circle_green {
+  @extend %circle;
+  @extend .m-1;
+  background-color: $green-color;
+}
+
+.circle_blue {
+  @extend %circle;
+  @extend .m-1;
+  background-color: $main-color;
+}
+
+@media(max-width: 1200px) {
+  .line {
+    width: 20rem;
+  }
+
+  .StepLeftAside {
+    margin-left: 0;
+
+    .StepDesc {
+      div {
+        h3 {
+          padding: 0;
+        }
+      }
+
+      span {
+        padding: 0;
+      }
+    }
+  }
+
+  .StepRightAside {
+    flex-direction: row;
+    margin-right: 0;
+
+    .StepDesc {
+      text-align: left;
+      margin-left: 1rem;
+      margin-right: 0;
+
+      div {
+        flex-direction: row;
+
+        h3 {
+          padding: 0;
+        }
+      }
+
+      span {
+        padding: 0;
+      }
+    }
+  }
+}
+
+/* Smartphones */
+@media(max-width: 500px) {
+  .StepLeftAside {
+    border-bottom: 1px solid black;
+    width: 80%;
+
+    img {
+      display: none;
+    }
+
+    .StepDesc {
+      .line {
+        display: none;
+      }
+    }
+  }
+
+  .StepRightAside {
+    border-bottom: 1px solid black;
+    width: 80%;
+
+    img {
+      display: none;
+    }
+
+    .StepDesc {
+      .line {
+        display: none;
+      }
+    }
+  }
+}

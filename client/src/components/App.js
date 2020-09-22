@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Header from './Header';
-import Landing from './Landing';
+import Header from './Header/Header';
+import Landing from './Landing/Landing';
+import Footer from "./Footer/Footer";
 import Dashboard from "./Dashboard";
 import NewSurvey from "./surveys/NewSurvey";
-import 'materialize-css/dist/css/materialize.min.css';
 import {fetchCurrentUserActionCreator} from '../actions/auth.actions';
 import {connect} from 'react-redux';
+import '../sass/_reset.scss'
+import '../sass/_config.scss'
 
 class App extends Component {
   componentDidMount() {
@@ -15,7 +17,6 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container" style={{backgroundColor: "#ebf8ff"}}>
         <Router>
           <Header/>
           <Switch>
@@ -30,8 +31,8 @@ class App extends Component {
               <NewSurvey/>
             </Route>
           </Switch>
+          <Footer/>
         </Router>
-      </div>
     );
   }
 }

@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Mulish&display=swap');
+@import './reset';
+@import './utilities';
+@import './config';
+
+.Header {
+  width: 100%;
+  background-color: $main-color;
+  font-family: $secondary-font;
+  color: $light-color;
+
+  .Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .Logo {
+      width: 10rem;
+      height: 5rem;
+      padding-left: 2rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .NavItems {
+      display: flex;
+      padding-right: 2rem;
+
+      li {
+        padding: 1rem 1rem 1rem 0;
+        display: flex;
+        align-items: center;
+
+        img {
+          padding-left: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.Content {
+  font-family: $main-font;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+
+  .Greeting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      color: #0D2947;
+      font-size: 4rem;
+      font-weight: normal;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    img {
+      width: 70%;
+    }
+  }
+
+  .Steps {
+    .Step-explanation {
+      text-align: left;
+      @extend .p-3;
+      font-weight: normal;
+      font-size: 1.5rem;
+    }
+
+    .Step-left-aside {
+      font-family: $secondary-font;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-left: 7rem;
+      margin-bottom: 3rem;
+
+      .step-desc {
+        text-align: left;
+        margin-left: 1rem;
+
+        div {
+          display: flex;
+          align-items: center;
+
+          h3 {
+            @extend .p-1;
+          }
+        }
+
+        span {
+          @extend .p-1;
+          font-size: larger;
+        }
+      }
+    }
+
+    .Step-right-aside {
+      font-family: $secondary-font;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: flex-start;
+      margin-right: 7rem;
+      margin-bottom: 3rem;
+
+      .step-desc {
+        text-align: right;
+        margin-right: 1rem;
+
+        div {
+          display: flex;
+          flex-direction: row-reverse;
+          align-items: center;
+        }
+
+        span {
+          font-family: $secondary-font;
+          font-size: larger;
+        }
+      }
+    }
+  }
+}
+
+.Footer {
+  background: $main-color;
+  color: $light-color;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $secondary-font;
+  font-size: larger;
+  font-weight: bold;
+}
+
+@import "./media";

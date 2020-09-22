@@ -1,0 +1,256 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Mulish&display=swap");
+/* Basic things */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  line-height: 1.4; }
+
+a {
+  text-decoration: none; }
+
+button {
+  border: none; }
+
+ul {
+  list-style: none; }
+
+.main-bg {
+  background-color: #364A90; }
+
+.btn-main, .btn-red, .btn-dark {
+  display: inline-block;
+  padding: .8rem 2rem;
+  transition: background-color .5s;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px; }
+
+.btn-main {
+  background-color: #364A90;
+  color: #f4f4f4; }
+
+.btn-red {
+  background-color: #B41F41;
+  color: #f4f4f4; }
+
+.btn-dark {
+  background-color: #333;
+  color: #f4f4f4; }
+
+.m-1, .circle-red, .circle-yellow, .circle-green, .circle-blue, .line {
+  margin: 1rem; }
+
+.m-2 {
+  margin: 2rem; }
+
+.m-3 {
+  margin: 3rem; }
+
+.p-1, .Content .Steps .Step-left-aside .step-desc div h3, .Content .Steps .Step-left-aside .step-desc span {
+  padding: 1rem; }
+
+.p-2 {
+  padding: 2rem; }
+
+.p-3, .Content .Steps .Step-explanation {
+  padding: 3rem; }
+
+.circle-red, .circle-yellow, .circle-green, .circle-blue {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  display: inline-block; }
+
+.circle-red {
+  background-color: #B41F41; }
+
+.circle-yellow {
+  background-color: #FFB54A; }
+
+.circle-green {
+  background-color: #378944; }
+
+.circle-blue {
+  background-color: #364A90; }
+
+.line {
+  height: .1rem;
+  width: 40rem;
+  background-color: #333; }
+
+.Header {
+  width: 100%;
+  background-color: #364A90;
+  font-family: "Mulish", sans-serif;
+  color: #f4f4f4; }
+  .Header .Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .Header .Navbar .Logo {
+      width: 10rem;
+      height: 5rem;
+      padding-left: 2rem; }
+      .Header .Navbar .Logo img {
+        width: 100%;
+        height: 100%; }
+    .Header .Navbar .NavItems {
+      display: flex;
+      padding-right: 2rem; }
+      .Header .Navbar .NavItems li {
+        padding: 1rem 1rem 1rem 0;
+        display: flex;
+        align-items: center; }
+        .Header .Navbar .NavItems li img {
+          padding-left: 1rem; }
+
+.Content {
+  font-family: "Merriweather", serif;
+  width: 80%;
+  margin: auto;
+  text-align: center; }
+  .Content .Greeting {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .Content .Greeting h1 {
+      color: #0D2947;
+      font-size: 4rem;
+      font-weight: normal;
+      padding: 2rem;
+      margin-top: 2rem; }
+    .Content .Greeting img {
+      width: 70%; }
+  .Content .Steps .Step-explanation {
+    text-align: left;
+    font-weight: normal;
+    font-size: 1.5rem; }
+  .Content .Steps .Step-left-aside {
+    font-family: "Mulish", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 7rem;
+    margin-bottom: 3rem; }
+    .Content .Steps .Step-left-aside .step-desc {
+      text-align: left;
+      margin-left: 1rem; }
+      .Content .Steps .Step-left-aside .step-desc div {
+        display: flex;
+        align-items: center; }
+      .Content .Steps .Step-left-aside .step-desc span {
+        font-size: larger; }
+  .Content .Steps .Step-right-aside {
+    font-family: "Mulish", sans-serif;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: 7rem;
+    margin-bottom: 3rem; }
+    .Content .Steps .Step-right-aside .step-desc {
+      text-align: right;
+      margin-right: 1rem; }
+      .Content .Steps .Step-right-aside .step-desc div {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center; }
+      .Content .Steps .Step-right-aside .step-desc span {
+        font-family: "Mulish", sans-serif;
+        font-size: larger; }
+
+.Footer {
+  background: #364A90;
+  color: #f4f4f4;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Mulish", sans-serif;
+  font-size: larger;
+  font-weight: bold; }
+
+/* Tablets and laptops */
+@media (max-width: 1200px) {
+  .line {
+    width: 20rem; }
+  .Content .Steps .Step-explanation {
+    padding: 2rem 1rem; }
+  .Content .Steps .Step-left-aside {
+    margin-left: 0; }
+    .Content .Steps .Step-left-aside .step-desc div h3 {
+      padding: 0; }
+    .Content .Steps .Step-left-aside .step-desc span {
+      padding: 0; }
+  .Content .Steps .Step-right-aside {
+    flex-direction: row;
+    margin-right: 0; }
+    .Content .Steps .Step-right-aside .step-desc {
+      text-align: left;
+      margin-left: 1rem;
+      margin-right: 0; }
+      .Content .Steps .Step-right-aside .step-desc div {
+        flex-direction: row; }
+        .Content .Steps .Step-right-aside .step-desc div h3 {
+          padding: 0; }
+      .Content .Steps .Step-right-aside .step-desc span {
+        padding: 0; } }
+
+/* Smartphones */
+@media (max-width: 500px) {
+  .Header .Navbar {
+    display: block; }
+    .Header .Navbar .Logo {
+      height: 4rem;
+      padding-left: 0;
+      margin: auto; }
+    .Header .Navbar .NavItems {
+      justify-content: space-between;
+      padding-right: 0;
+      padding-bottom: 1rem; }
+      .Header .Navbar .NavItems li {
+        padding: .5rem 1rem; }
+        .Header .Navbar .NavItems li img {
+          display: none; }
+  .Content {
+    width: 100%; }
+    .Content .Greeting {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .Content .Greeting h1 {
+        font-size: 1.5rem;
+        padding: .5rem;
+        margin-top: 1rem; }
+      .Content .Greeting img {
+        width: 90%; }
+    .Content .Steps {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .Content .Steps .Step-explanation {
+        font-size: 1rem; }
+      .Content .Steps .Step-left-aside {
+        border-bottom: 1px solid black;
+        width: 80%; }
+        .Content .Steps .Step-left-aside img {
+          display: none; }
+        .Content .Steps .Step-left-aside .step-desc .line {
+          display: none; }
+      .Content .Steps .Step-right-aside {
+        border-bottom: 1px solid black;
+        width: 80%; }
+        .Content .Steps .Step-right-aside img {
+          display: none; }
+        .Content .Steps .Step-right-aside .step-desc .line {
+          display: none; }
+  .Footer {
+    font-size: 1rem; } }
+
+/* Landscape */
+@media (max-height: 500px) {
+  .Content .Greeting h1 {
+    font-size: 2rem; } }
