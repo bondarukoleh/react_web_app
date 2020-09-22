@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Mulish&display=swap');
+@import '../../sass/config';
+@import '../../sass/utilities';
+
+.Content {
+  font-family: $main-font;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+
+  .Greeting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      color: #0D2947;
+      font-size: 4rem;
+      font-weight: normal;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    img {
+      width: 70%;
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+@media(max-width: 500px) {
+  .Content {
+    width: 100%;
+
+    .Greeting {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h1 {
+        font-size: 1.5rem;
+        padding: .5rem;
+        margin-top: 1rem;
+      }
+
+      img {
+        width: 90%;
+      }
+    }
+  }
+}
+
+/* Landscape */
+@media(max-height: 500px) {
+  .Content {
+    .Greeting {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+}

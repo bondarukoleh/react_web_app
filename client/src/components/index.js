@@ -1,4 +1,4 @@
 import App from './App';
-import Header from './Header';
+import Header from './Header/Header';
 
 export {App, Header};

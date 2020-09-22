@@ -1,0 +1,20 @@
+@import '../../sass/config';
+
+.Footer {
+  background: $main-color;
+  color: $light-color;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $secondary-font;
+  font-size: larger;
+  font-weight: bold;
+}
+
+/* Smartphones */
+@media(max-width: 500px) {
+  .Footer {
+    font-size: 1rem;
+  }
+}

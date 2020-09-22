@@ -1,0 +1,73 @@
+@import '../../sass/config';
+@import '../../sass/utilities';
+
+.Header {
+  width: 100%;
+  background-color: $main-color;
+  font-family: $secondary-font;
+  color: $light-color;
+
+  .Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .Logo {
+      width: 15rem;
+      height: 5rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .NavItems {
+      display: flex;
+      padding-right: 2rem;
+
+      li {
+        padding: 1rem 1rem 1rem 0;
+        display: flex;
+        align-items: center;
+
+        img {
+          padding-left: 1rem;
+        }
+      }
+    }
+  }
+}
+
+/* Smartphones */
+@media(max-width: 500px) {
+  .Header {
+    .Navbar {
+      display: block;
+      text-align: center;
+
+      .Logo {
+        height: 0;
+        padding-left: 0;
+
+        img {
+          width: 80%;
+        }
+      }
+
+      .NavItems {
+        justify-content: center;
+        padding-right: 0;
+        padding-bottom: 1rem;
+
+        li {
+          padding: .5rem 1rem;
+
+          img {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
