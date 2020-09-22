@@ -67,7 +67,6 @@
   }
 
   .Steps {
-
     .Step-explanation {
       text-align: left;
       @extend .p-3;
@@ -142,3 +141,5 @@
   font-size: larger;
   font-weight: bold;
 }
+
+@import "./media";

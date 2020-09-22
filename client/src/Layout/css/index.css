@@ -172,3 +172,85 @@ ul {
   font-family: "Mulish", sans-serif;
   font-size: larger;
   font-weight: bold; }
+
+/* Tablets and laptops */
+@media (max-width: 1200px) {
+  .line {
+    width: 20rem; }
+  .Content .Steps .Step-explanation {
+    padding: 2rem 1rem; }
+  .Content .Steps .Step-left-aside {
+    margin-left: 0; }
+    .Content .Steps .Step-left-aside .step-desc div h3 {
+      padding: 0; }
+    .Content .Steps .Step-left-aside .step-desc span {
+      padding: 0; }
+  .Content .Steps .Step-right-aside {
+    flex-direction: row;
+    margin-right: 0; }
+    .Content .Steps .Step-right-aside .step-desc {
+      text-align: left;
+      margin-left: 1rem;
+      margin-right: 0; }
+      .Content .Steps .Step-right-aside .step-desc div {
+        flex-direction: row; }
+        .Content .Steps .Step-right-aside .step-desc div h3 {
+          padding: 0; }
+      .Content .Steps .Step-right-aside .step-desc span {
+        padding: 0; } }
+
+/* Smartphones */
+@media (max-width: 500px) {
+  .Header .Navbar {
+    display: block; }
+    .Header .Navbar .Logo {
+      height: 4rem;
+      padding-left: 0;
+      margin: auto; }
+    .Header .Navbar .NavItems {
+      justify-content: space-between;
+      padding-right: 0;
+      padding-bottom: 1rem; }
+      .Header .Navbar .NavItems li {
+        padding: .5rem 1rem; }
+        .Header .Navbar .NavItems li img {
+          display: none; }
+  .Content {
+    width: 100%; }
+    .Content .Greeting {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .Content .Greeting h1 {
+        font-size: 1.5rem;
+        padding: .5rem;
+        margin-top: 1rem; }
+      .Content .Greeting img {
+        width: 90%; }
+    .Content .Steps {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .Content .Steps .Step-explanation {
+        font-size: 1rem; }
+      .Content .Steps .Step-left-aside {
+        border-bottom: 1px solid black;
+        width: 80%; }
+        .Content .Steps .Step-left-aside img {
+          display: none; }
+        .Content .Steps .Step-left-aside .step-desc .line {
+          display: none; }
+      .Content .Steps .Step-right-aside {
+        border-bottom: 1px solid black;
+        width: 80%; }
+        .Content .Steps .Step-right-aside img {
+          display: none; }
+        .Content .Steps .Step-right-aside .step-desc .line {
+          display: none; }
+  .Footer {
+    font-size: 1rem; } }
+
+/* Landscape */
+@media (max-height: 500px) {
+  .Content .Greeting h1 {
+    font-size: 2rem; } }
