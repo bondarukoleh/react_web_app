@@ -1,9 +1,9 @@
 {
-  "short_name": "Emaily App",
-  "name": "Application gives you ability to send surveys to your target group",
+  "short_name": "Quick Quiz",
+  "name": "Easy to create email quiz application",
   "icons": [
     {
-      "src": "emaily_icon.png",
+      "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }
