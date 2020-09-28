@@ -1,0 +1,22 @@
+@import '../../sass/config';
+@import '../../sass/utilities';
+@import '../../sass/functions';
+
+.Surveys {
+  width: 90vw;
+  height: get-content-height(100vh);
+  background: url("../../assets/noCredits.png") no-repeat center center/cover;
+  text-align: center;
+  margin: auto;
+  font-family: $main-font;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CenterText {
+  h1 {
+    font-size: 4rem;
+    padding-bottom: 4rem;
+  }
+}

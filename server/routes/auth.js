@@ -7,6 +7,6 @@ router.get('/', passport.authenticate('google', {
   scope: ['profile', 'email']
 }));
 
-router.get('/callback', passport.authenticate('google'), (req, res) => res.redirect('/surveys'));
+router.get('/callback', passport.authenticate('google'), (req, res) => res.redirect('/Surveys'));
 
 module.exports = {handler: router, path: paths.authGoogle};

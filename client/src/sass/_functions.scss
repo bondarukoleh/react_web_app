@@ -6,3 +6,7 @@
   }
   @return $light-color;
 }
+
+@function get-content-height($height){
+  @return $height - $footer-height - $header-height;
+}

@@ -11,14 +11,14 @@ const Survey = mongoose.model('survey');
 const isClickEvent = (eventObj) => eventObj.event === 'click' && eventObj.url;
 const extractSurveyIdAndAnswer = ({url, email}) => {
   const urlObject = new URL(url);
-  const parsedPath = new Path('/api/surveys/:surveyID/:answer').test(urlObject.pathname);
+  const parsedPath = new Path('/api/Surveys/:surveyID/:answer').test(urlObject.pathname);
   if (parsedPath) {
     return {email, surveyID: parsedPath.surveyID, answer: parsedPath.answer};
   }
 };
 const updateDBSurvey = ({email, surveyID, answer}) => {
   // instead of finding survey by id, find a recipient by email, change him, then change it, and return whole
-  // list or surveys back - we will sent only one query, that will cover all the actions
+  // list or Surveys back - we will sent only one query, that will cover all the actions
   Survey.updateOne({_id: surveyID, recipients: {$elemMatch: {email, responded: false}}},
     {$inc: {[answer]: 1}, $set: {'recipients.$.responded': true}, lastResponded: Date.now()}
   ).exec()

@@ -14,7 +14,7 @@
 
     .Logo {
       width: 15rem;
-      height: 5rem;
+      height: $header-height;
 
       img {
         width: 100%;
@@ -47,10 +47,10 @@
       text-align: center;
 
       .Logo {
-        height: 0;
         padding-left: 0;
 
         img {
+          height: 100%;
           width: 80%;
         }
       }

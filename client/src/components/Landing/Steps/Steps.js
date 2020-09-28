@@ -1,7 +1,6 @@
 import React from 'react';
 import Step from "./Step/Step";
 import styles from './Steps.module.scss'
-import PropTypes from "prop-types";
 import step1Icon from '../../../assets/steps/step1.svg'
 import step2Icon from '../../../assets/steps/step2.svg'
 import step3Icon from '../../../assets/steps/step3.svg'

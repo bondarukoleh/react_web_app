@@ -2,6 +2,6 @@ module.exports = {
   authGoogle: '/auth/google',
   apiLogout: '/api/logout',
   apiCurrentUser: '/api/current_user',
-  surveys: '/api/surveys',
+  surveys: '/api/Surveys',
   apiPayment: '/api/payment',
 };
