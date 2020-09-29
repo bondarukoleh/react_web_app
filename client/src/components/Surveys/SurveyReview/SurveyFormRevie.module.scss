@@ -1,0 +1,84 @@
+@import '../../../sass/config';
+@import '../../../sass/utilities';
+@import '../../../sass/functions';
+
+.Wrapper {
+  font-family: $secondary-font;
+  background: white url('../../../assets/formQuizClouds.png') no-repeat center center/cover;
+  height: get-content-height(100vh);
+  display: flex;
+  justify-content: center;
+
+  h3 {
+    padding-top: 4rem;
+    padding-left: 1rem;
+  }
+
+  .Controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+}
+
+.SurveyForm {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1rem 1rem;
+  width: 50vw;
+
+  .InputGroup {
+    width: 100%;
+
+    label {
+      display: block;
+      padding: .5rem;
+    }
+
+    div {
+      width: 100%;
+      border-radius: 5px;
+      box-shadow: 1px 1px 5px #333;
+      background-color: #EEF2FF;
+      padding: 1rem;
+    }
+  }
+}
+
+.SentSurvey {
+  background: white url('../../../assets/sendSurvey.png') no-repeat center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 23rem;
+  text-align: center;
+
+  h2 {
+    padding-bottom: 2rem;
+  }
+
+  button {
+    margin: 2rem 2.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .Wrapper {
+    .Controls {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1rem;
+    }
+  }
+  .SurveyForm {
+    padding: 1rem;
+    width: 90vw;
+  }
+  .SentSurvey {
+    height: 18rem;
+
+    button {
+      margin: .7rem;
+    }
+  }
+}

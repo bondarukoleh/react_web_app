@@ -40,6 +40,7 @@
     &_grey {
         @extend %btn-shared;
         color: set-contract-color($light-color);
+        border: $dark-color 1px solid;
 
         &:hover {
             background-color: $main-dark-color;
