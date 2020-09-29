@@ -1,5 +1,5 @@
 import React from "react";
-// import {reduxForm, Field} from 'redux-form'
+import styles from "./SurveyForm/SurveyForm.module.scss";
 
 /* props here has "input" object with onBlur, onChange, onFocus etc. event handlers added by redux-form
 * so we will extract those handlers to our input element we returning.
@@ -7,10 +7,10 @@ import React from "react";
 
 const SurveyField = ({input, label, meta: {error, touched}}) => {
   return (
-    <div>
+    <div className={styles.InputGroup}>
       <label>{label}</label>
       <input style={{marginBottom: '5px'}} {...input}/>
-      <div className="red-text" style={{marginBottom: '20px'}}>
+      <div className={styles.RedText}>
         {touched && error}
       </div>
     </div>);

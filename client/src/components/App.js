@@ -4,7 +4,7 @@ import Header from './Header/Header';
 import Landing from './Landing/Landing';
 import Footer from "./Footer/Footer";
 import Dashboard from "./Dashboard";
-import NewSurvey from "./Surveys/NewSurvey";
+import NewSurvey from "./Surveys/NewSurvey/NewSurvey";
 import {fetchCurrentUserActionCreator} from '../actions/auth.actions';
 import {connect} from 'react-redux';
 import '../sass/_reset.scss'

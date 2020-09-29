@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {reduxForm} from 'redux-form';
-import SurveyForm from "./SurveyForm";
-import SurveyFromReview from "./SurveyFromReview";
+import SurveyForm from "../SurveyForm/SurveyForm";
+import SurveyFromReview from "../SurveyFromReview";
 
 class NewSurvey extends Component {
   state = {showFormReview: false};

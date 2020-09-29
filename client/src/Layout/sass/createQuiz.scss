@@ -1,6 +1,5 @@
-@import '../../sass/config';
-@import '../../sass/utilities';
-@import '../../sass/functions';
+@import "config";
+@import "functions";
 
 .Surveys {
   width: 90vw;
@@ -44,33 +43,5 @@
   img {
     width: 50%;
     height: 30%;
-  }
-}
-
-@media (max-width: 500px) {
-  .Surveys {
-    width: 80vw;
-    height: 80vh;
-  }
-
-  .CreateQuiz {
-    width: 100vw;
-    height: 60vh;
-
-    h1 {
-      padding: 2rem 0 1rem;
-      font-size: 2rem;
-    }
-
-    h3 {
-      padding: 3rem;
-    }
-
-    img {
-      display: none;
-      //padding-top: 3rem;
-      //width: 90%;
-      //height: 70%;
-    }
   }
 }

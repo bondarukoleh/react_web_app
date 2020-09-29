@@ -1,0 +1,31 @@
+.Surveys {
+  width: 90vw;
+  height: 82vh;
+  text-align: center;
+  margin: auto;
+  font-family: "Merriweather", serif;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.NoSurveysBg {
+  background: url("../../assets/noCredits.png") no-repeat center center/cover; }
+
+.NoBg {
+  background: none; }
+
+.CenterText h1 {
+  font-size: 4rem;
+  padding-bottom: 4rem; }
+
+.CreateQuiz {
+  width: 80vw;
+  height: 80vh; }
+  .CreateQuiz h1 {
+    padding: 2rem 0 1rem;
+    font-size: 3rem; }
+  .CreateQuiz h3 {
+    padding: 2rem; }
+  .CreateQuiz img {
+    width: 50%;
+    height: 30%; }

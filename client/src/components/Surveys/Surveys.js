@@ -24,7 +24,7 @@ class Surveys extends Component {
   };
 
   renderNoCredits = () => {
-    return <div className={[styles.CenterText, styles.NoSurveysBg].join(' ')}>
+    return <div className={styles.CenterText}>
       <h1>Oops... No credit yet!</h1>
       <Payments/>
     </div>;
@@ -73,7 +73,12 @@ class Surveys extends Component {
   };
 
   render() {
-    return <div className={styles.Surveys}>
+    const {user} = this.props;
+    const classes = [styles.Surveys];
+    if(user && !user.credit) {
+      classes.push(styles.NoSurveysBg)
+    }
+    return <div className={classes.join(' ')}>
       {this.renderSurveys()}
     </div>;
   }

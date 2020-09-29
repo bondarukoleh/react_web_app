@@ -30,9 +30,20 @@
     &_dark {
         @extend %btn-shared;
         color: set-contract-color($dark-color);
+        padding: .7rem 1.8rem;
 
         &:hover {
             background-color: $main-dark-color;
+        }
+    }
+
+    &_grey {
+        @extend %btn-shared;
+        color: set-contract-color($light-color);
+
+        &:hover {
+            background-color: $main-dark-color;
+            color: set-contract-color($dark-color);
         }
     }
 }

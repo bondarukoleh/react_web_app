@@ -1,0 +1,66 @@
+@import '../../../sass/config';
+@import '../../../sass/utilities';
+@import '../../../sass/functions';
+
+.Wrapper {
+  font-family: $secondary-font;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white url('../../../assets/formQuizClouds.png') no-repeat center center/cover;
+  height: get-content-height(100vh);
+
+  .Controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+}
+
+.SurveyForm {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 1rem 1rem;
+  width: 50vw;
+
+  .InputGroup {
+    width: 100%;
+
+    label {
+      display: block;
+      padding: .5rem;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 2px solid #333;
+    }
+
+    textarea {
+      height: 5rem;
+    }
+  }
+}
+
+.RedText {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 500px) {
+  .Wrapper {
+
+    .Controls {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1rem;
+    }
+  }
+  .SurveyForm {
+    padding: 1rem;
+    width: 90vw;
+  }
+}

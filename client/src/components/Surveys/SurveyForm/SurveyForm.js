@@ -1,38 +1,44 @@
 import React, {Component} from "react";
 import {reduxForm, Field} from 'redux-form';
 import {Link} from "react-router-dom";
-import SurveyField from "./SurveyField";
-import {validateEmails} from '../../utils/validate.emails';
-import {FIELD_PROPS} from './survey.data';
+import SurveyField from "../SurveyField";
+import {validateEmails} from '../../../utils/validate.emails';
+import {FIELD_PROPS} from '../survey.data';
+import styles from './SurveyForm.module.scss'
 
 class SurveyForm extends Component {
   renderFields = () => {
-    return (<div>
-      {FIELD_PROPS.map(({label, name}) => {
-        return <Field label={label} component={SurveyField} type='text' name={name} key={name}/>;
-      })}
-    </div>);
+    return FIELD_PROPS.map(({label, name}) => {
+        return <Field
+            label={label}
+            component={SurveyField}
+            type='text'
+            name={name}
+            key={name}
+          />;
+      });
   };
 
-  render() {
-    const {handleSubmit, onSurveySubmit} = this.props;
-    return (<div>
-      {/* component tells that this is an html input element, type says that this is text, not button or radiobutton
+/* component tells that this is an html input element, type says that this is text, not button or radiobutton
       name it's an identification for redux, and it will be automatically renewed when it's value is changed
       <Field component='input' type='text' name='UserName'/>
       handleSubmit - automatically added by reduxForm, we need to pass a callback gets object with props named
-       same as Field "name" property */}
-      <form onSubmit={handleSubmit(onSurveySubmit)}>
-        {this.renderFields()}
-        <Link to="/surveys" className="red btn-flat white-text">
-          Cancel
-        </Link>
-        <button type="submit" className="teal btn-flat right white-text">
-          Next
-          <i className="material-icons right">done</i>
-        </button>
-      </form>
-    </div>);
+       same as Field "name" property */
+  render() {
+    const {handleSubmit, onSurveySubmit} = this.props;
+    return (
+      <section className={styles.Wrapper}>
+        <div>
+          <form className={styles.SurveyForm}>
+            {this.renderFields()}
+          </form>
+          <div className={styles.Controls}>
+            <Link to="/surveys" className={styles.btn_grey}>Cancel</Link>
+            <Link to='#' onClick={handleSubmit(onSurveySubmit)} type="submit" className={styles.btn_red}>Next</Link>
+          </div>
+        </div>
+      </section>
+    );
   }
 }
 

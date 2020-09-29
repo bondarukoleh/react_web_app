@@ -1,5 +1,4 @@
-@import '../../sass/config';
-@import '../../sass/utilities';
+@import "config";
 
 .Header {
   width: 100%;
@@ -46,40 +45,26 @@
       display: block;
       text-align: center;
 
-      div {
-        height: 4rem;
-        top: 0;
-        left: 0;
+      .Logo {
+        padding-left: 0;
 
-        .Logo {
-          padding: 0;
-
-          img {
-            height: 100%;
-            width: 100%;
-          }
+        img {
+          height: 100%;
+          width: 80%;
         }
       }
 
       .NavItems {
-        padding: 0;
-        display: grid;
-        grid-template-columns: repeat(2, 2fr);
-        grid-template-rows: 2fr;
         justify-content: center;
-        align-content: center;
+        padding-right: 0;
+        padding-bottom: 1rem;
 
         li {
           padding: .5rem 1rem;
-          justify-content: center;
 
           img {
             display: none;
           }
-        }
-
-        li:first-child {
-          grid-column: 1/ span 2;
         }
       }
     }
