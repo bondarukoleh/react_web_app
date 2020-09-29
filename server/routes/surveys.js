@@ -11,7 +11,7 @@ const Survey = mongoose.model('survey');
 const isClickEvent = (eventObj) => eventObj.event === 'click' && eventObj.url;
 const extractSurveyIdAndAnswer = ({url, email}) => {
   const urlObject = new URL(url);
-  const parsedPath = new Path('/api/Surveys/:surveyID/:answer').test(urlObject.pathname);
+  const parsedPath = new Path('/api/surveys/:surveyID/:answer').test(urlObject.pathname);
   if (parsedPath) {
     return {email, surveyID: parsedPath.surveyID, answer: parsedPath.answer};
   }

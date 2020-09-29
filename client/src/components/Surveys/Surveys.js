@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import styles from './Surveys.module.scss';
 import Payments from "../Payment/Payments";
+import createQuiz from '../../assets/createQuiz.png'
 
 class Surveys extends Component {
   state = {
@@ -23,17 +24,20 @@ class Surveys extends Component {
   };
 
   renderNoCredits = () => {
-    return <div className={styles.CenterText}>
+    return <div className={[styles.CenterText, styles.NoSurveysBg].join(' ')}>
       <h1>Oops... No credit yet!</h1>
       <Payments/>
     </div>;
   };
 
   renderNoSurveys = () => {
-    return <div className={styles.CenterText}>
-      <h1>Oops... No credit yet!</h1>
-      <Link to='/' className={styles.btn_red}>Add credit</Link>
-      <Payments/>
+    return <div className={[styles.CreateQuiz, styles.NoBg].join(' ')}>
+      <h1>Cool! Let’s start create quiz.</h1>
+      <h3>You can create more quiz as you want.</h3>
+      <Link to='/surveys/new' className={styles.btn_red}>Create Quiz</Link>
+      <div>
+        <img src={createQuiz} alt=""/>
+      </div>
     </div>;
   };
 

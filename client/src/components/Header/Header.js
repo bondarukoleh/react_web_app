@@ -51,7 +51,7 @@ class Header extends Component {
     return (
       <header className={styles.Header}>
         <nav className={styles.Navbar}>
-          <Link className={styles.Logo} to={user ? '/Surveys' : '/'}>
+          <Link className={styles.Logo} to={user ? '/surveys' : '/'}>
             <img src={logo} alt="Logo"/>
           </Link>
           <ul className={styles.NavItems}>

@@ -5,7 +5,6 @@
 .Surveys {
   width: 90vw;
   height: get-content-height(100vh);
-  background: url("../../assets/noCredits.png") no-repeat center center/cover;
   text-align: center;
   margin: auto;
   font-family: $main-font;
@@ -14,9 +13,36 @@
   align-items: center;
 }
 
+.NoSurveysBg {
+  background: url("../../assets/noCredits.png") no-repeat center center/cover;
+}
+
+.NoBg {
+  background: none;
+}
+
 .CenterText {
   h1 {
     font-size: 4rem;
     padding-bottom: 4rem;
+  }
+}
+
+.CreateQuiz {
+  width: 80vw;
+  height: 80vh;
+
+  h1 {
+    padding: 2rem 0 1rem;
+    font-size: 3rem;
+  }
+
+  h3 {
+    padding: 2rem;
+  }
+
+  img {
+    width: 50%;
+    height: 30%;
   }
 }
