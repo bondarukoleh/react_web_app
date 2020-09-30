@@ -12,9 +12,24 @@
   font-weight: bold;
 }
 
+.FixedFooter {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
+
 /* Smartphones */
 @media(max-width: 500px) {
   .Footer {
     font-size: 1rem;
+  }
+}
+
+/* narrow screens */
+@media(max-height: 600px) {
+  .Footer {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
   }
 }

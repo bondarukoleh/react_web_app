@@ -21,7 +21,7 @@ const Step = (props) => {
 Step.propTypes = {
   left: PropTypes.bool.isRequired,
   circleColor: PropTypes.string.isRequired,
-  icon: PropTypes.object.isRequired,
+  icon: PropTypes.string.isRequired,
   stepDescription: PropTypes.string.isRequired,
   stepNum: PropTypes.number.isRequired
 }

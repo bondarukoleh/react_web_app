@@ -15,7 +15,7 @@ const Steps = () => {
       {left: false, circleColor: 'circle_blue', icon: step4Icon, stepDescription: 'Collect the result', stepNum: 4},
     ];
 
-    return steps.map(step => <Step {...step}/>);
+    return steps.map(step => <Step key={step.stepNum} {...step}/>);
   }
 
   return (
