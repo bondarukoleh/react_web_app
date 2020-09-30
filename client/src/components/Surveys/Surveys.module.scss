@@ -10,7 +10,6 @@
   font-family: $main-font;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .NoSurveysBg {
@@ -44,6 +43,21 @@
   img {
     width: 50%;
     height: 30%;
+  }
+}
+
+.SurveyCards {
+  width: 100%;
+
+  .SurveyCardsHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .Wrapper {
+    display: flex;
+    flex-direction: column;
   }
 }
 

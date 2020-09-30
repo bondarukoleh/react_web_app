@@ -30,8 +30,7 @@ const SurveyFormReview = ({onCancel, survey, sendSurvey, history}) => {
     return <Modal shadeClick={() => setState({showModal: false})} show={state.showModal}>
       <div className={styles.SentSurvey}>
         <div>
-          <h2>Your quiz will be sent.</h2>
-          <h2>Are you sure?</h2>
+          <h2>Your quiz will be sent. <br/> Are you sure?</h2>
             <button className={styles.btn_grey} onClick={() => setState({showModal: false})}>Back</button>
             <button type="submit" className={styles.btn_red} onClick={sendSurveyData}>Send</button>
         </div>

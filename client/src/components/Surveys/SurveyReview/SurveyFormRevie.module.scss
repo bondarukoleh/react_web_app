@@ -39,7 +39,7 @@
       width: 100%;
       border-radius: 5px;
       box-shadow: 1px 1px 5px #333;
-      background-color: #EEF2FF;
+      background-color: $main-light-color;
       padding: 1rem;
     }
   }
@@ -54,7 +54,7 @@
   text-align: center;
 
   h2 {
-    padding-bottom: 2rem;
+    padding: 2rem;
   }
 
   button {

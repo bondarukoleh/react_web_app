@@ -1,8 +1,8 @@
 import React, {Component} from "react";
-import Survey from "./Survey";
+import Survey from "./SurveyCard/Survey";
 import {fetchSurveysActionCreator, deleteSurveyActionCreator} from "../../actions/survey.actions";
 import {connect} from "react-redux";
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import styles from './Surveys.module.scss';
 import Payments from "../Payment/Payments";
 import createQuiz from '../../assets/createQuiz.png'
@@ -46,41 +46,45 @@ class Surveys extends Component {
     if (surveys === null) {
       return <div>Fetching your surveys...</div>;
     }
-    if (user && !user.credit) {
+    if (user && !user.credit && !surveys.length) {
       return this.renderNoCredits();
     }
     if (surveys === false || !surveys.length) {
       return this.renderNoSurveys();
     }
-    return <div>
-      <button className="btn-small"
-              style={{margin: '5px'}}
-              onClick={() => this.setState({sorting: 'asc'})}>New on the top
-      </button>
-      <button className="btn-small"
-              style={{margin: '5px'}}
-              onClick={() => this.setState({sorting: 'desc'})}>New on the bottom
-      </button>
-      {surveys.sort(surveys.length ? 1 && this.sortByDate : undefined).map((survey) => {
-        return <Survey
-          survey={survey}
-          deletedSurvey={deletedSurvey}
-          deleteSurvey={deleteSurvey}
-          key={survey.id}
-        />;
-      })}
-    </div>;
+    return <section className={styles.SurveyCards}>
+      <div className={styles.SurveyCardsHeader}>
+        <button className={styles.btn_red} onClick={() => this.props.history.push('/surveys/new')}>Create Quiz</button>
+        <div>Sorting</div>
+      </div>
+      <div className={styles.Wrapper}>
+        {surveys.sort(surveys.length ? 1 && this.sortByDate : undefined).map((survey) => {
+          return <Survey
+            survey={survey}
+            deletedSurvey={deletedSurvey}
+            deleteSurvey={deleteSurvey}
+            key={survey.id}
+          />;
+        })}
+      </div>
+      {/*<button className={styles.btn_red}*/}
+      {/*        onClick={() => this.setState({sorting: 'asc'})}>New on the top*/}
+      {/*</button>*/}
+      {/*<button className="btn-small"*/}
+      {/*        onClick={() => this.setState({sorting: 'desc'})}>New on the bottom*/}
+      {/*</button>*/}
+    </section>;
   };
 
   render() {
-    const {user} = this.props;
+    const {user, surveys} = this.props;
     const classes = [styles.Surveys];
-    if(user && !user.credit) {
+    if(user && !user.credit && !surveys?.length) {
       classes.push(styles.NoSurveysBg)
     }
-    return <div className={classes.join(' ')}>
+    return <section className={classes.join(' ')}>
       {this.renderSurveys()}
-    </div>;
+    </section>;
   }
 }
 
@@ -99,4 +103,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Surveys);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Surveys));

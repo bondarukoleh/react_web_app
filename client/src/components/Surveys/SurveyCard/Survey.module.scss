@@ -1,0 +1,72 @@
+@import '../../../sass/config';
+@import '../../../sass/utilities';
+@import '../../../sass/functions';
+
+.SurveyCard {
+  font-family: $secondary-font;
+  background-color: $main-light-color;
+  margin: .5rem;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 5px #333;
+
+  span {
+    font-weight: bold;
+  }
+
+  .CardContent {
+    display: flex;
+    padding: 2rem;
+    justify-content: space-between;
+
+    P:first-child {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  .CardActions {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+    align-items: center;
+
+    p {
+      display: inline;
+      padding-left: 2rem;
+    }
+
+    button {
+      margin: 0 2rem;
+      align-self: flex-end;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .SurveyCard {
+    .CardContent {
+      display: flex;
+      flex-direction: column;
+
+      p:first-child {
+        padding-bottom: 1rem;
+      }
+    }
+    .CardActions {
+      div {
+        display: flex;
+        flex-direction: column;
+      }
+
+      p {
+        display: inline;
+        padding-left: 1rem;
+      }
+
+      button {
+        margin: 0 2rem;
+        align-self: center;
+      }
+    }
+  }
+}
