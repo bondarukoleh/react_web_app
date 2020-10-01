@@ -16,7 +16,7 @@ function NavItems(props) {
       return <React.Fragment>
         <li><span>{`Hi ${user.name}, you have credits: ${user.credit ? user.credit : 0}`}</span><img src={userIcon} alt="user_icon"/></li>
         <li id="add_credits"><Payments/></li>
-        <li><a href="/api/logout" className={styles.btn_dark}>Logout</a></li>
+        <li><a href="/api/logout" className={props.sideMenuShown ? styles.btn_grey : styles.btn_dark}>Logout</a></li>
         {/*We will sent full request to backend with browser refresh,
          but we also could handle this click via creating action "USER_LOGOUT", make inner ajax request to backend,
          without refresh, clear store etc.*/}

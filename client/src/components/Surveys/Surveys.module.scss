@@ -21,6 +21,10 @@
 }
 
 .CenterText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   h1 {
     font-size: 4rem;
     padding-bottom: 4rem;

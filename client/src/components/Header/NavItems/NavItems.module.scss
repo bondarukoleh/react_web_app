@@ -26,4 +26,32 @@
   .NavItems:not(.InSideMenu) {
     display: none;
   }
+
+  .NavItems.InSideMenu {
+    position: relative;
+    top: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-right: 0;
+
+    li {
+      padding: 1rem 1rem 0 0;
+      display: block;
+      align-items: center;
+
+      span {
+        color: $dark-color;
+      }
+
+      a, button {
+        min-width: 9rem;
+        text-align: center;
+      }
+
+      img {
+        display: none;
+      }
+    }
+  }
 }
