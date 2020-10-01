@@ -1,0 +1,29 @@
+@import '../../../sass/config';
+@import '../../../sass/utilities';
+
+.NavItems {
+  display: flex;
+  padding-right: 2rem;
+
+  li {
+    padding: 1rem 1rem 1rem 0;
+    display: flex;
+    align-items: center;
+
+    img {
+      padding-left: 1rem;
+    }
+  }
+}
+
+/* Just to prevent hiding */
+.InSideMenu {
+
+}
+
+/* Smartphones */
+@media(max-width: 500px) {
+  .NavItems:not(.InSideMenu) {
+    display: none;
+  }
+}
