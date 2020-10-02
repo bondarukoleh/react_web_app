@@ -1,6 +1,6 @@
 export const FIELD_PROPS = [
-  {label: 'Survey Title', name: 'title'},
-  {label: 'Subject', name: 'subject'},
-  {label: 'Email body', name: 'body'},
+  {label: 'Email subject', name: 'subject'},
+  {label: 'Quiz title', name: 'title'},
+  {label: 'Question you want to ask', name: 'body'},
   {label: 'Recipient list', name: 'recipients'}
 ];

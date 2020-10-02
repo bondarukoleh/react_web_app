@@ -2,7 +2,8 @@ import {SurveyActions} from '../actions/survey.actions';
 
 const initialState = {
   surveySend: null,
-  fetchSurveys: null
+  fetchSurveys: null,
+  deleteSurvey: null
 };
 
 export function surveyReducer(state = initialState, action) {

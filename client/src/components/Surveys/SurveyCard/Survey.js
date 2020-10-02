@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import styles from './Survey.module.scss';
-import remove from '../../../assets/delete.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 class Survey extends Component {
   deleteSurvey = async () => {
@@ -13,11 +14,11 @@ class Survey extends Component {
   };
 
   render() {
-    const {survey: {body, dateSent, no, subject, yes}} = this.props;
+    const {survey: {body, dateSent, no, title, yes}} = this.props;
     return (
       <div className={styles.SurveyCard}>
         <div className={styles.CardContent}>
-          <p><span>{subject}</span> - {body}</p>
+          <p><span>{title}</span> - {body}</p>
           <p><span>Send date</span> {new Date(dateSent).toLocaleString()}</p>
         </div>
         <hr/>
@@ -26,11 +27,11 @@ class Survey extends Component {
             <p><span>Yes voted count:</span> {yes}</p>
             <p><span>No voted count:</span> {no}</p>
           </div>
-          <button onClick={this.showWarning}><img src={remove} alt='remove'/></button>
+          <button onClick={this.showWarning}> <FontAwesomeIcon icon={faTrash} size={"lg"} /></button>
         </div>
       </div>
     );
   }
-};
+}
 
 export default Survey;

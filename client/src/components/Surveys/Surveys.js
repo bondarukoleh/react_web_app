@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {PureComponent} from "react";
 import Survey from "./SurveyCard/Survey";
 import {fetchSurveysActionCreator, deleteSurveyActionCreator} from "../../actions/survey.actions";
 import {connect} from "react-redux";
@@ -7,7 +7,7 @@ import styles from './Surveys.module.scss';
 import Payments from "../Payment/Payments";
 import createQuiz from '../../assets/createQuiz.png'
 
-class Surveys extends Component {
+class Surveys extends PureComponent {
   state = {
     sorting: 'desc'
   };

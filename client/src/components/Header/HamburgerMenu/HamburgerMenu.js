@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './HamburgerMenu.module.scss'
 import NavItems from "../NavItems/NavItems";

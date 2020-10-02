@@ -1,9 +1,7 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import Payments from '../Payment/Payments';
 import logo from '../../assets/logo.svg';
-import userIcon from '../../assets/user_icon.svg';
 import styles from './Header.module.scss'
 import HamburgerMenu from "./HamburgerMenu/HamburgerMenu";
 import NavItems from "./NavItems/NavItems";
@@ -34,13 +32,12 @@ class Header extends Component {
   changeShowState = () => this.setState(({showSideMenu}) => ({showSideMenu: !showSideMenu}))
 
   render() {
-    const {user} = this.props;
     return (
       <header className={styles.Header}>
           <HamburgerMenu clicked={this.changeShowState} sideMenuShown={this.state.showSideMenu}/>
           <nav className={styles.Navbar}>
             <div>
-              <Link className={styles.Logo} to={user ? '/surveys' : '/'}>
+              <Link className={styles.Logo} to={'/'}>
                 <img src={logo} alt="Logo"/>
               </Link>
             </div>
