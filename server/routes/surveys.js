@@ -95,9 +95,7 @@ router.post('/webhook', async (req, res) => {
 
 // TODO: move to the client side
 router.get('/:surveyID/:answer', (req, res) => {
-  res.send(`Thank you for the participating! ${req.params.answer === 'yes'
-    ? 'We glad you like it!'
-    : `We'll try to make it better!`}`);
+  res.send(`Thank you for the participating!`);
 });
 
 router.get('/', isLoggedIn, async (req, res) => {
