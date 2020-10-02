@@ -1,4 +1,4 @@
-import React, {PureComponent} from "react";
+import React, {Component} from "react";
 import Survey from "./SurveyCard/Survey";
 import {fetchSurveysActionCreator, deleteSurveyActionCreator} from "../../actions/survey.actions";
 import {connect} from "react-redux";
@@ -6,14 +6,21 @@ import {Link, withRouter} from "react-router-dom";
 import styles from './Surveys.module.scss';
 import Payments from "../Payment/Payments";
 import createQuiz from '../../assets/createQuiz.png'
+import SortingDropdown from "./SortingDropdown/SortingDropdown";
 
-class Surveys extends PureComponent {
+class Surveys extends Component {
   state = {
     sorting: 'desc'
   };
 
   componentDidMount() {
     this.props.fetchSurveys();
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.deletedSurvey !== this.props.deletedSurvey) {
+      this.props.fetchSurveys();
+    }
   }
 
   sortByDate = (surveyA, surveyB) => {
@@ -41,6 +48,9 @@ class Surveys extends PureComponent {
     </div>;
   };
 
+  ascSorting = () => this.setState({sorting: 'asc'});
+  descSorting = () => this.setState({sorting: 'desc'});
+
   renderSurveys = () => {
     const {surveys, deletedSurvey, deleteSurvey, user} = this.props;
     if (surveys === null) {
@@ -55,7 +65,7 @@ class Surveys extends PureComponent {
     return <section className={styles.SurveyCards}>
       <div className={styles.SurveyCardsHeader}>
         <button className={styles.btn_red} onClick={() => this.props.history.push('/surveys/new')}>Create Quiz</button>
-        <div>Sorting</div>
+        <SortingDropdown ascSorting={this.ascSorting} descSorting={this.descSorting}/>
       </div>
       <div className={styles.Wrapper}>
         {surveys.sort(surveys.length ? 1 && this.sortByDate : undefined).map((survey) => {
@@ -67,12 +77,6 @@ class Surveys extends PureComponent {
           />;
         })}
       </div>
-      {/*<button className={styles.btn_red}*/}
-      {/*        onClick={() => this.setState({sorting: 'asc'})}>New on the top*/}
-      {/*</button>*/}
-      {/*<button className="btn-small"*/}
-      {/*        onClick={() => this.setState({sorting: 'desc'})}>New on the bottom*/}
-      {/*</button>*/}
     </section>;
   };
 

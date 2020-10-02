@@ -1,0 +1,96 @@
+@import '../../../sass/config';
+@import '../../../sass/utilities';
+
+.Dropdown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  input {
+    opacity: 0;
+  }
+
+  & > label {
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 2rem;
+    height: 3rem;
+
+    & > span, & > span::before, > span::after {
+      display: block;
+      position: relative;
+      width: 8px;
+      height: 8px;
+      background-color: $main-dark-color;
+      transition-duration: .25s;
+    }
+
+    & > span::before {
+      content: '';
+      top: -12px;
+    }
+
+    & > span::after {
+      content: '';
+      top: 4px;
+    }
+  }
+
+  input:checked ~ label span::before {
+    top: 0;
+    left: -12px;
+  }
+
+  input:checked ~ label span::after {
+    top: -8px;
+    right: -12px;
+  }
+}
+
+.Dropdown {
+  ul {
+    top: 2.5rem;
+    left: -8rem;
+    position: absolute;
+    background-color: $main-light-color;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 5px #333;
+    width: 10rem;
+
+    li:first-child button {
+      border-radius: 1rem 1rem 0 0;
+    }
+    li:last-child button {
+      border-radius: 0 0 1rem 1rem;
+    }
+
+    li {
+      button {
+        width: 100%;
+        padding: 1rem;
+        font-family: $secondary-font;
+        font-size: large;
+        color: $dark-color;
+      }
+
+      &:hover {
+        button {
+          color: $main-light-color;
+          background-color: $main-color;
+        }
+      }
+    }
+  }
+
+  .Shown {
+    display: block;
+  }
+
+  .Hide {
+    display: none;
+  }
+}
