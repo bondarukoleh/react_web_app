@@ -5,8 +5,9 @@ import {connect} from "react-redux";
 import {Link, withRouter} from "react-router-dom";
 import styles from './Surveys.module.scss';
 import Payments from "../Payment/Payments";
-import createQuiz from '../../assets/createQuiz.png'
+import createQuiz from '../../assets/createQuiz.png';
 import SortingDropdown from "./SortingDropdown/SortingDropdown";
+import ReactTooltip from "react-tooltip";
 
 class Surveys extends Component {
   state = {
@@ -52,19 +53,26 @@ class Surveys extends Component {
   descSorting = () => this.setState({sorting: 'desc'});
 
   renderSurveys = () => {
-    const {surveys, deletedSurvey, deleteSurvey, user} = this.props;
+    const {surveys, deletedSurvey, deleteSurvey} = this.props;
     if (surveys === null) {
       return <div>Fetching your surveys...</div>;
     }
-    if (user && !user.credit && !surveys.length) {
+    if (!this.userHasCredits() && !this.userHasSurveys()) {
       return this.renderNoCredits();
     }
-    if (surveys === false || !surveys.length) {
+    if (!this.userHasSurveys()) {
       return this.renderNoSurveys();
     }
     return <section className={styles.SurveyCards}>
       <div className={styles.SurveyCardsHeader}>
-        <button className={styles.btn_red} onClick={() => this.props.history.push('/surveys/new')}>Create Quiz</button>
+      <span data-tip data-for={!this.userHasCredits() && "createQuiz"}> {/* Workaround to show tooltip for disabled button */}
+        <button
+          className={this.userHasCredits() ? styles.btn_red : styles.btn_diabled}
+          onClick={() => this.props.history.push('/surveys/new')}
+          disabled={!this.userHasCredits()}
+        >Create Quiz</button>
+      </span>
+        <ReactTooltip id={'createQuiz'} place={"bottom"} effect={"solid"}>You have for no credits</ReactTooltip>
         <SortingDropdown ascSorting={this.ascSorting} descSorting={this.descSorting}/>
       </div>
       <div className={styles.Wrapper}>
@@ -80,11 +88,13 @@ class Surveys extends Component {
     </section>;
   };
 
+  userHasCredits = () => !!this.props.user?.credit;
+  userHasSurveys = () => !!this.props.surveys?.length;
+
   render() {
-    const {user, surveys} = this.props;
     const classes = [styles.Surveys];
-    if(user && !user.credit && !surveys?.length) {
-      classes.push(styles.NoSurveysBg)
+    if (this.userHasCredits() && !this.userHasSurveys()) {
+      classes.push(styles.NoSurveysBg);
     }
     return <section className={classes.join(' ')}>
       {this.renderSurveys()}

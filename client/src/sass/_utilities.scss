@@ -25,6 +25,10 @@
         @extend %btn-shared;
         background-color: $main-red-color;
         color: set-contract-color($main-red-color);
+
+        &:hover {
+            background-color: $red-color;
+        }
     }
 
     &_dark {
@@ -46,6 +50,12 @@
             background-color: $main-dark-color;
             color: set-contract-color($dark-color);
         }
+    }
+
+    &_diabled {
+        @extend %btn-shared;
+        color: white;
+        background-color: #7f7f7f;
     }
 }
 

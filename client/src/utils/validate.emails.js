@@ -3,7 +3,7 @@ export function validateEmails(emails) {
   const emailsArray = emails.split(',').map(email => email.trim());
   const invalidEmails = emailsArray.filter(email => !validEmailRegEx.test(email));
   if (invalidEmails.length) {
-    return `These emails are invalid: ${invalidEmails}`;
+    return `These emails are invalid: ${invalidEmails}. Please comma separate the recipients.`;
   }
   return null;
 }

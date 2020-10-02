@@ -5,7 +5,7 @@
 .Wrapper {
   font-family: $secondary-font;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   background: white url('../../../assets/formQuizClouds.png') no-repeat center center/cover;
   height: get-content-height(100vh);
