@@ -1,0 +1,44 @@
+@import '../../../sass/config';
+@import '../../../sass/utilities';
+
+%Popup {
+  top: 1rem;
+  font-family: $secondary-font;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  text-align: center;
+  z-index: 500;
+  width: 100vw;
+
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    height: 5rem;
+    width: 80vw;
+    opacity: 90%;
+
+    span {
+      padding: 0 .5rem;
+    }
+  }
+}
+
+.Success {
+  @extend %Popup;
+  p {
+    background-color: #00bfa5;
+  }
+}
+
+.Error {
+  @extend %Popup;
+
+  p {
+    color: white;
+    background-color: $red-color;
+  }
+}

@@ -9,6 +9,7 @@ import {fetchCurrentUserActionCreator} from '../actions/auth.actions';
 import {connect} from 'react-redux';
 import '../sass/_reset.scss'
 import '../sass/_config.scss'
+import Popup from "./UI/Popup/Popup";
 
 class App extends Component {
   componentDidMount() {
@@ -18,6 +19,7 @@ class App extends Component {
   render() {
     return (
         <Router>
+          <Popup/>
           <Header/>
           <Switch>
             {/*same as exact={true}*/}
