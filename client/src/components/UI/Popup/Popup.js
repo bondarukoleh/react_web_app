@@ -10,6 +10,10 @@ function Popup(props) {
   const successMessage = <p><span>Survey sent successfully!</span><FontAwesomeIcon icon={faSmileBeam} size={"lg"}/></p>;
   const errorMessage = <p><span>Something went wrong, sorry</span><FontAwesomeIcon icon={faSadTear} size={"lg"}/></p>;
 
+  console.log('Debugging the popup');
+  console.log(props);
+  console.log(state);
+
   useEffect(() => {
     if (surveySend) {
       setState({showError: false, showSuccess: true})
