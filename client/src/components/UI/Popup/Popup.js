@@ -5,17 +5,16 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSmileBeam, faSadTear} from '@fortawesome/free-solid-svg-icons';
 
 function Popup(props) {
-  const {surveySend} = props.survey;
-  const [state, setState] = useState({showSuccess: surveySend});
+  const [state, setState] = useState({showSuccess: props.sentSurvey});
   const successMessage = <p><span>Survey sent successfully!</span><FontAwesomeIcon icon={faSmileBeam} size={"lg"}/></p>;
   const errorMessage = <p><span>Something went wrong, sorry</span><FontAwesomeIcon icon={faSadTear} size={"lg"}/></p>;
 
   useEffect(() => {
-    if (surveySend) {
+    if (props.sentSurvey) {
       setState({showError: false, showSuccess: true})
-      setTimeout(() => setState({showError: false, showSuccess: false}), 5000);
+      setTimeout(() => setState({showSuccess: false}), 5000);
     }
-  }, [props.survey]);
+  }, [props.sentSurvey]);
 
   if (state.showSuccess) {
     return <div className={styles.Success}>
@@ -30,7 +29,7 @@ function Popup(props) {
 
 const mapStateToProps = store => {
   return {
-    survey: store.survey,
+    sentSurvey: store.survey.surveySend,
     error: store.error,
   };
 };

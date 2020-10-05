@@ -20,7 +20,7 @@ class App extends Component {
     return (
         <Router>
           {/* Need to figure out why it's not working in prod */}
-          {/*<Popup/>*/}
+          <Popup/>
           <Header/>
           <Switch>
             {/*same as exact={true}*/}
