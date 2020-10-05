@@ -205,12 +205,13 @@ logic in redux store.
 `ngrok` - nice, but they wanted money :broken_heart: for static proxy url + you need to install stuff \
 I've picked up **ssh.localhost.run** :boom:
 
-ideas to expand app:
-Error handling
-Improve the design
-Ability to delete survey
-Survey sorting
-improve the code linter, pre commit hook, readme
+Improvements: \
+Must have:
+1. Fix mobile side menu size;
+2. Fix layout of bottom elements;
+3. Background picture layout in landscape mode;
+
+Nice to have: render optimization, Error handling, code linter, pre commit hook, readme.
 
 [1]: http://www.passportjs.org
 [2]: client/build/index.html
