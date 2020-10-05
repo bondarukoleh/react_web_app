@@ -19,7 +19,6 @@ class App extends Component {
   render() {
     return (
         <Router>
-          {/* Need to figure out why it's not working in prod */}
           <Popup/>
           <Header/>
           <Switch>

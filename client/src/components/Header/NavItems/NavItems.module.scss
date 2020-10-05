@@ -36,7 +36,7 @@
     padding-right: 0;
 
     li {
-      padding: 1rem 1rem 0 0;
+      padding: .5rem;
       display: block;
       align-items: center;
 
@@ -51,6 +51,12 @@
 
       img {
         display: none;
+      }
+    }
+
+    li:first-child {
+      span {
+        display: block;
       }
     }
   }

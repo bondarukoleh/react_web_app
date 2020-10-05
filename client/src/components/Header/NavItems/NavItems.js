@@ -14,7 +14,8 @@ function NavItems(props) {
       return <li><a href="/auth/google" className={styles.btn_red}>Login with Google</a></li>
     } else {
       return <React.Fragment>
-        <li><span>{`Hi ${user.name}, you have credits: ${user.credit ? user.credit : 0}`}</span><img src={userIcon} alt="user_icon"/></li>
+        <li><span>{`Hi ${user.name}!`}</span>
+          <span>{` You have credits: ${user.credit ? user.credit : 0}`}</span><img src={userIcon} alt="user_icon"/></li>
         <li id="add_credits"><Payments/></li>
         <li><a href="/api/logout" className={props.sideMenuShown ? styles.btn_grey : styles.btn_dark}>Logout</a></li>
         {/*We will sent full request to backend with browser refresh,

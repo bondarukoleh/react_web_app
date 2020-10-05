@@ -13,7 +13,8 @@
 }
 
 .NoSurveysBg {
-  background: url("../../assets/noCredits.png") no-repeat center center/cover;
+  background-size: 100%;
+  background: url("../../assets/noCredits.png") no-repeat fixed center;
 }
 
 .NoBg {

@@ -2,6 +2,7 @@
 @import '../../sass/utilities';
 
 .Header {
+  position: relative;
   width: 100%;
   background-color: $main-color;
   font-family: $secondary-font;
