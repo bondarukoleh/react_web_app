@@ -3,13 +3,13 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Header from './Header/Header';
 import Landing from './Landing/Landing';
 import Footer from "./Footer/Footer";
-import Dashboard from "./Dashboard";
 import NewSurvey from "./Surveys/NewSurvey/NewSurvey";
 import {fetchCurrentUserActionCreator} from '../actions/auth.actions';
 import {connect} from 'react-redux';
 import '../sass/_reset.scss'
 import '../sass/_config.scss'
 import Popup from "./UI/Popup/Popup";
+import Surveys from "./Surveys/Surveys";
 
 class App extends Component {
   componentDidMount() {
@@ -27,7 +27,7 @@ class App extends Component {
               <Landing/>
             </Route>
             <Route exact path="/surveys">
-              <Dashboard/>
+              <Surveys/>
             </Route>
             <Route exact path="/surveys/new">
               <NewSurvey/>

@@ -33,7 +33,7 @@ class Header extends Component {
 
   render() {
     return (
-      <header className={styles.Header}>
+      <header id='header' className={styles.Header}>
           <HamburgerMenu clicked={this.changeShowState} sideMenuShown={this.state.showSideMenu}/>
           <nav className={styles.Navbar}>
             <div>

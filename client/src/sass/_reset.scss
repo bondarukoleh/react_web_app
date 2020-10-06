@@ -5,8 +5,9 @@
     box-sizing: border-box;
 }
   
-body {
+html, body {
     line-height: 1.4;
+    height: 100%;
 }
  
 a {
@@ -19,6 +20,10 @@ button {
 
 ul {
     list-style: none;
+}
+
+#root {
+    height: 100%;
 }
 
 

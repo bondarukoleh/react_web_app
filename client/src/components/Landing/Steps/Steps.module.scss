@@ -2,6 +2,7 @@
 @import '../../../sass/utilities';
 
 .Steps {
+  padding-bottom: 2rem;
   .StepExplanation {
     text-align: left;
     @extend .p_3;
@@ -21,6 +22,7 @@
 /* Smartphones */
 @media(max-width: 500px) {
   .Steps {
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;

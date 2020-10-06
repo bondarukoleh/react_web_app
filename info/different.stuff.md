@@ -207,9 +207,7 @@ I've picked up **ssh.localhost.run** :boom:
 
 Improvements: \
 Must have:
-1. Fix mobile side menu size;
-2. Fix layout of bottom elements;
-3. Background picture layout in landscape mode;
+1. Delete survey message.
 
 Nice to have: render optimization, Error handling, code linter, pre commit hook, readme.
 

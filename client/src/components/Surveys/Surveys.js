@@ -32,7 +32,7 @@ class Surveys extends Component {
   };
 
   renderNoCredits = () => {
-    return <div className={styles.CenterText}>
+    return <div className={styles.NoCredits}>
       <h1>Oops... No credit yet!</h1>
       <Payments/>
     </div>;

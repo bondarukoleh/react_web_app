@@ -5,9 +5,9 @@
 .Wrapper {
   font-family: $secondary-font;
   background: white url('../../../assets/formQuizClouds.png') no-repeat center center/cover;
-  height: get-content-height(100vh);
   display: flex;
   justify-content: center;
+  height: 90%;
 
   h3 {
     padding-top: 1rem;
@@ -62,8 +62,21 @@
   }
 }
 
+/* Landscape */
+@media(max-width: 700px) and (max-height: 400px){
+  .Wrapper {
+    height: auto;
+    padding-bottom: 1rem;
+  }
+
+  .SentSurvey {
+    height: 15rem;
+  }
+}
+
 @media (max-width: 500px) {
   .Wrapper {
+    margin-bottom: 1rem;
     .Controls {
       display: flex;
       justify-content: space-between;

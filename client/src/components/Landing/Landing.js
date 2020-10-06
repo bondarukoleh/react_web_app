@@ -10,7 +10,7 @@ class Landing extends Component {
     const {user} = this.props;
 
     return (
-      <main className={styles.Content}>
+      <main id='main' className={styles.Content}>
         <section className={styles.Greeting}>
           <h1>Create your quiz with fast response</h1>
           <img src={greetingImage} alt="Greeting_picture"/>

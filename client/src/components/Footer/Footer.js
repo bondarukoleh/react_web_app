@@ -6,7 +6,7 @@ const Footer = (props) => {
   const classes = [styles.Footer];
   props.location.pathname !== '/' &&  classes.push(styles.FixedFooter);
 
-  return (<footer className={classes.join(' ')}>
+  return (<footer id='footer' className={classes.join(' ')}>
     <p>Copyright &copy; 2020. All Rights Reserved</p>
   </footer>);
 };

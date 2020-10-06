@@ -7,6 +7,7 @@
   background-color: $main-color;
   font-family: $secondary-font;
   color: $light-color;
+  height: 10%;
 
   .Navbar {
     display: flex;
@@ -30,9 +31,16 @@
   }
 }
 
+@media (max-width: 700px) {
+  .Header {
+    height: 5.5rem;
+  }
+}
+
 /* Smartphones */
 @media(max-width: 500px) {
   .Header {
+    height: 4rem;
     display: flex;
     justify-content: space-between;
 

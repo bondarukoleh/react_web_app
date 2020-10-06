@@ -8,7 +8,7 @@
   align-items: flex-start;
   justify-content: center;
   background: white url('../../../assets/formQuizClouds.png') no-repeat center center/cover;
-  height: get-content-height(100vh);
+  height: 90%;
 
   .Controls {
     display: flex;
@@ -50,9 +50,16 @@
   margin-bottom: 1rem;
 }
 
+/* Landscape */
+@media(max-width: 700px) and (max-height: 400px){
+  .Wrapper {
+    height: auto;
+    padding-bottom: 2rem;
+  }
+}
+
 @media (max-width: 500px) {
   .Wrapper {
-
     .Controls {
       display: flex;
       justify-content: space-between;

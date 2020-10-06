@@ -3,13 +3,13 @@
 @import '../../sass/functions';
 
 .Surveys {
-  width: 90vw;
-  height: get-content-height(100vh);
   text-align: center;
   margin: auto;
   font-family: $main-font;
   display: flex;
   justify-content: center;
+  min-height: 90%;
+  padding-bottom: 1rem;
 }
 
 .NoSurveysBg {
@@ -21,10 +21,13 @@
   background: none;
 }
 
-.CenterText {
+.NoCredits {
+  background: url("../../assets/noCredits.png") no-repeat fixed center;
+  background-size: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
 
   h1 {
     font-size: 4rem;
@@ -33,9 +36,6 @@
 }
 
 .CreateQuiz {
-  width: 80vw;
-  height: 80vh;
-
   h1 {
     padding: 2rem 0 1rem;
     font-size: 3rem;
@@ -52,7 +52,7 @@
 }
 
 .SurveyCards {
-  width: 100%;
+  width: 80%;
 
   .SurveyCardsHeader {
     display: flex;
@@ -66,15 +66,43 @@
   }
 }
 
+/* Landscape */
+@media(max-width: 700px) and (max-height: 400px){
+  .CreateQuiz {
+    h1 {
+      font-size: 2rem;
+      padding: 1rem;
+    }
+
+    h3 {
+      padding: 1rem;
+    }
+
+    img {
+      width: 50%;
+      height: 30%;
+    }
+  }
+
+  .Surveys {
+    padding-bottom: 0;
+  }
+
+  .NoCredits {
+    background: url("../../assets/noCredits.png") no-repeat center;
+    h1 {
+      font-size: 2rem;
+    }
+  }
+}
+
 @media (max-width: 500px) {
   .Surveys {
-    width: 80vw;
-    height: 60vh;
+    padding-bottom: 4rem;
   }
 
   .CreateQuiz {
     width: 100vw;
-    height: 60vh;
 
     h1 {
       padding: 1rem;
@@ -89,6 +117,14 @@
       padding-top: 1rem;
       width: 90%;
       height: 70%;
+    }
+  }
+
+  .NoCredits {
+    background: url("../../assets/noCredits.png") no-repeat center;
+
+    h1 {
+      font-size: 2rem;
     }
   }
 }

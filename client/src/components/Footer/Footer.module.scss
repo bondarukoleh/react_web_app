@@ -3,33 +3,26 @@
 .Footer {
   background: $main-color;
   color: $light-color;
-  height: $footer-height;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: $secondary-font;
   font-size: larger;
   font-weight: bold;
+  height: 4rem;
+  margin-top: -4rem;
 }
 
-.FixedFooter {
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
+/* Landscape */
+@media(max-width: 700px) and (max-height: 400px){
+  .Footer {
+    margin-top: 0;
+  }
 }
 
 /* Smartphones */
 @media(max-width: 500px) {
   .Footer {
     font-size: 1rem;
-  }
-}
-
-/* narrow screens */
-@media(max-height: 600px) {
-  .Footer {
-    position: fixed;
-    bottom: 0;
-    width: 100vw;
   }
 }
