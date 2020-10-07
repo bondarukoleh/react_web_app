@@ -21,8 +21,15 @@
 
 }
 
+.Space {
+}
+
 /* Smartphones */
 @media(max-width: 500px) {
+  .Space {
+    display: none !important;
+  }
+
   .NavItems:not(.InSideMenu) {
     display: none;
   }
