@@ -67,8 +67,10 @@
 }
 
 /* Landscape */
-@media(max-width: 700px) and (max-height: 400px){
+@media(max-width: 850px) and (max-height: 400px) {
   .CreateQuiz {
+    margin-bottom: 1rem;
+
     h1 {
       font-size: 2rem;
       padding: 1rem;
@@ -89,10 +91,16 @@
   }
 
   .NoCredits {
-    background: url("../../assets/noCredits.png") no-repeat center;
+    background: url("../../assets/noCredits.png") no-repeat center center/cover;
+    height: auto;
+    margin-bottom: 4rem;
     h1 {
       font-size: 2rem;
     }
+  }
+
+  .NoSurveysBg {
+    background: url("../../assets/noCredits.png") no-repeat center center;
   }
 }
 

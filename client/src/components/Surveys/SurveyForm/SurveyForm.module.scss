@@ -51,9 +51,10 @@
 }
 
 /* Landscape */
-@media(max-width: 700px) and (max-height: 400px){
+@media(max-width: 850px) and (max-height: 400px){
   .Wrapper {
     height: auto;
+    margin-bottom: 4rem;
     padding-bottom: 2rem;
   }
 }

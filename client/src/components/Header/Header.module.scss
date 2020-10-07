@@ -31,7 +31,8 @@
   }
 }
 
-@media (max-width: 700px) {
+/* Landscape */
+@media (max-height: 400px) and (max-width: 850px) {
   .Header {
     height: 5.5rem;
   }

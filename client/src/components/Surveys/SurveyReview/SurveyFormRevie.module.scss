@@ -63,10 +63,11 @@
 }
 
 /* Landscape */
-@media(max-width: 700px) and (max-height: 400px){
+@media(max-width: 850px) and (max-height: 400px){
   .Wrapper {
     height: auto;
     padding-bottom: 1rem;
+    margin-bottom: 4rem;
   }
 
   .SentSurvey {
