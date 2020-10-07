@@ -70,6 +70,7 @@
 @media(max-width: 900px) and (max-height: 500px) {
   .CreateQuiz {
     margin-bottom: 1rem;
+    height: auto;
 
     h1 {
       font-size: 2rem;
@@ -107,6 +108,7 @@
 @media (max-width: 500px) {
   .Surveys {
     padding-bottom: 4rem;
+    height: auto;
   }
 
   .CreateQuiz {

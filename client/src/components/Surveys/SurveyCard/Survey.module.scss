@@ -29,6 +29,7 @@
     justify-content: space-between;
     padding: .5rem;
     align-items: center;
+    flex-wrap:wrap;
 
     p {
       display: inline;
@@ -37,6 +38,47 @@
 
     button {
       margin: 0 2rem;
+    }
+  }
+}
+
+.Dropdown {
+  flex: 0 0 100%;
+  position: relative;
+
+  ul {
+    top: .2rem;
+    right: 1rem;
+    position: absolute;
+    background-color: $main-light-color;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 5px #333;
+    width: 10rem;
+
+    li:first-child button {
+      border-radius: 1rem 1rem 0 0;
+    }
+    li:first-child button:hover {
+      color: $main-light-color;
+      background-color: $main-color;
+    }
+    li:last-child button {
+      border-radius: 0 0 1rem 1rem;
+    }
+    li:last-child button:hover {
+      color: $main-light-color;
+      background-color: $red-color;
+    }
+
+    li {
+      button {
+        margin: 0 !important;
+        width: 100%;
+        padding: 1rem;
+        font-family: $secondary-font;
+        font-size: large;
+        color: $dark-color;
+      }
     }
   }
 }
