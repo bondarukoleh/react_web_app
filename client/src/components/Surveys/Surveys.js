@@ -33,15 +33,15 @@ class Surveys extends Component {
 
   renderNoCredits = () => {
     return <div className={styles.NoCredits}>
-      <h1>Oops... No credit yet!</h1>
+      <h1>Oops... No credits yet!</h1>
       <Payments/>
     </div>;
   };
 
   renderNoSurveys = () => {
     return <div className={[styles.CreateQuiz, styles.NoBg].join(' ')}>
-      <h1>Cool! Let’s start create quiz.</h1>
-      <h3>You can create more quiz as you want.</h3>
+      <h1>Cool! Let’s create your first quiz.</h1>
+      <h3>You can create as much quiz as you want.</h3>
       <Link to='/surveys/new' className={styles.btn_red}>Create Quiz</Link>
       <div>
         <img src={createQuiz} alt=""/>
@@ -55,7 +55,7 @@ class Surveys extends Component {
   renderSurveys = () => {
     const {surveys, deletedSurvey, deleteSurvey} = this.props;
     if (surveys === null) {
-      return <div>Fetching your surveys...</div>;
+      return <div>Fetching your quizzes...</div>;
     }
     if (!this.userHasCredits() && !this.userHasSurveys()) {
       return this.renderNoCredits();

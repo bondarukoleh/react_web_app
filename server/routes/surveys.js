@@ -95,7 +95,15 @@ router.post('/webhook', async (req, res) => {
 
 // TODO: move to the client side
 router.get('/:surveyID/:answer', (req, res) => {
-  res.send(`Thank you for the participating!`);
+  res.send(`
+<html lang="en">
+  <body style="background-color: #cad8f8;">
+    <div style="display: flex; justify-content: center; align-items: center; font-family: Arial, serif;">
+      <h1>Thank you for your participation!</h1>
+    </div>
+  </body>
+</html>  
+  `);
 });
 
 router.get('/', isLoggedIn, async (req, res) => {
