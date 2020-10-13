@@ -50,7 +50,7 @@ const SurveyFormReview = ({onCancel, survey, sendSurvey, history}) => {
           <button
             type="submit"
             className={styles.btn_red}
-            onClick={() => setState({showModal: true})}>Send Survey</button>
+            onClick={() => setState({showModal: true})}>Send Quiz</button>
         </div>
         {state.showModal && showModal()}
       </div>

@@ -49,7 +49,7 @@ function validate(formValues) {
   // if there no emails at all = then add general error message to fields
   FIELD_PROPS.forEach(({name}) => {
     if (!formValues[name]) {
-      error[name] = `You must provide a ${name} to survey!`;
+      error[name] = `You must provide a ${name} to quiz!`;
     }
   });
   return error; // if errors object will be empty, or with properties with falsy values -> redux-form will add

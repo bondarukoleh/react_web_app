@@ -14,8 +14,8 @@ const surveyTemplate = (survey) => `
 <div style="width: 100vw">
 <div style="text-align: center; background-color: #cad8f8; font-family: Arial, serif; width: 80%">
   <h2>${survey.title}</h2>
-  <p><b>Please answer the following question:</b></p>
-  <div style="margin: 1rem">${survey.body}</div>
+  <p>Please answer the following question:</p>
+  <div style="margin: 1rem"><b>${survey.body}</b></div>
   <div>
     <a style="color: white; text-decoration: none; padding: .5rem 1rem; background-color: #0d47a1" href="${getRedirectUrl(true, survey.id)}">Yes</a>
     <a style="color: white; text-decoration: none; padding: .5rem 1rem; background-color: #af3136" href="${getRedirectUrl(false, survey.id)}">No</a>
