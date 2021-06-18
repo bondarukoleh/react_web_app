@@ -3,6 +3,7 @@ const {GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET} = require('../config');
 const mongoose = require('mongoose');
 // in models module we defined a Model for users. Now we are getting it.
 const UserModel = mongoose.model('user');
+const LocalStrategy = require('passport-local').Strategy;
 
 
 function useGoogleAuth(passportLib) {
@@ -47,4 +48,20 @@ function useGoogleAuth(passportLib) {
   ));
 }
 
-module.exports = {useGoogleAuth};
+function useLocalStrategy(passportLib) {
+  passportLib.use(new LocalStrategy( async function (username, password, done) {
+    try {
+        const user = await new UserModel({
+          googleID: mongoose.Types.ObjectId(),
+          name: 'Test User'
+        }).save();
+        return done(null, user); // at this point serializeUser function called with createdUser
+      } catch (e) {
+        console.log('Error while creating');
+        return done(e);
+      }
+    }
+  ));
+}
+
+module.exports = {useGoogleAuth, useLocalStrategy};

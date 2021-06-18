@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import styles from "./NavItems.module.scss";
 import userIcon from "../../../assets/user_icon.svg";
 import Payments from "../../Payment/Payments";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 function NavItems(props) {
   const showHeaderContent = () => {
@@ -11,7 +12,15 @@ function NavItems(props) {
     if (user === null) {
       return <li>Fetching user data...</li>
     } else if (user === false) {
-      return <li><a href="/auth/google" className={styles.btn_red}>Login with Google</a></li>
+      return <Fragment>
+        <li><a href="/auth/google" className={styles.btn_red}>Login with Google</a></li>
+        <li><a onClick={() => axios.post('/api/test_user', {
+          username: 'Test User', password: 1234
+        }).then(_ => {
+          /* I don't know why, but it's not working in the way it works with 'google' auth. Need to investigate */
+          window.location.reload();
+        })} className={styles.btn_red}>Test User</a></li>
+      </Fragment>
     } else {
       return <React.Fragment>
         <li><span>{`Hi ${user.name}!`}</span><span className={styles.Space}>&nbsp;</span>
