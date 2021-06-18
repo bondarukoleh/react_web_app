@@ -16,6 +16,9 @@ function NavItems(props) {
         <li><a href="/auth/google" className={styles.btn_red}>Login with Google</a></li>
         <li><a onClick={() => axios.post('/api/test_user', {
           username: 'Test User', password: 1234
+        }).then(_ => {
+          /* I don't know why, but it's not working in the way it works with 'google' auth. Need to investigate */
+          window.location.reload();
         })} className={styles.btn_red}>Test User</a></li>
       </Fragment>
     } else {
