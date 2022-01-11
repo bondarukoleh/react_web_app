@@ -20,8 +20,8 @@ function useGoogleAuth(passportLib) {
   passportLib.use(new GoogleStrategy({
       clientID: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
-      callbackURL: '/auth/google/callback' // we can provide a full url here "https://herokuapp" or "http://localhost",
-      // proxy: true // or set that we trust any proxy between our server and client
+      callbackURL: '/auth/google/callback', // we can provide a full url here "https://herokuapp" or "http://localhost",
+      proxy: true // or set that we trust any proxy between our server and client
     },
     async function (accessToken, refreshToken, profile, done) {
       let user = null;
