@@ -9,7 +9,6 @@ npm-debug.log*
 
 # Dependency
 node_modules/
-package-lock.json
 
 # sensitive stuff
 .data
